@@ -1,0 +1,12 @@
+@ECHO ON
+IF EXIST "C:\quietly-insights-master" (
+rmdir /S /Q "C:\quietly-insights-master"
+)
+mkdir "C:\quietly-insights-master"
+git clone "https://github.com/QuietlyApp/quietly-insights" "C:\quietly-insights-master"
+cd "C:\quietly-insights-master\selenium_tests"
+call npm install
+start selenium-standalone start
+Timeout 10
+cd "C:\quietly-insights-master\selenium_tests\" && mocha --reporter mochawesome --reporter-options reportDir="C:\Automation Results",reportFilename=FinalTestResults_%date:~-10,2%%date:~-7,2%%date:~-4,4%
+REM cd "C:\quietly-insights-master\selenium_tests\" && mocha --grep delete_account --reporter mochawesome --reporter-options reportDir="C:\Automation Results",reportFilename=DeleteAccTestResults_%date:~-10,2%%date:~-7,2%%date:~-4,4%
