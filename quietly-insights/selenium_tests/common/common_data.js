@@ -19,7 +19,7 @@ let configs = {
         expiryDate:"0123",
         nameOnCard:"Ellen",
         cvcNumber:"123",
-        userName: "quietlyautomation@gmail.com",
+        userName: "quietlyqa21257@gmail.com",
         password: "N0morewaffles",
         adminAccount: "quietlyautomation@gmail.com (stagingblog.quiet.ly)",
         reportOption: "monthly",
