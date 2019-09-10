@@ -174,6 +174,7 @@ loginDetails = exports.loginDetails = async function (email, password) {
 signInWithGoogleAndAllow = exports.signInWithGoogleAndAllow = async function (email, password) {
     email = email || commonUserData.userName;
     password = password || commonUserData.password;
+    delay(2000)
     await loginDetails(email, password);
     await allowAccess('Allow');
     //await commonBeforeAfter.addToDeletionList(email);
@@ -209,12 +210,14 @@ provideGoogleAnalyticsInfo = exports.provideGoogleAnalyticsInfo = async function
     account = account || commonUserData.account;
     property = property || commonUserData.property;
     view = view || commonUserData.view;
-    await selectItemFromDropDown("selectAccount", "//div[@role='option']", account);
-    await selectItemFromDropDown("selectProperty", "//div[@role='option']", property);
-    await selectItemFromDropDown("selectView", "//div[@role='option']", view);
-    await waitForElementToBeClickableById("reportNextStep");
+    accountIdentifer = "react-select-2--value";
+    propertyIdentifer = "react-select-3--value";
+    viewIdentifer = "react-select-4--value";
+    await selectItemFromDropDown(accountIdentifer, "//div[@role='option']", account);
+    await selectItemFromDropDown(propertyIdentifer, "//div[@role='option']", property);
+    await selectItemFromDropDown(viewIdentifer, "//div[@role='option']", view);
+    await waitForElementToBeClickableById("modalSaveAnalytics");
     await delay(1000);
-
 };
 
 //18. Select Additional Goals
@@ -337,6 +340,7 @@ const waitForElementToBeClickableForElement = (elFn) => {
         console.log('attempt number', number);
         return driver.findElement(elFn()).then(function (elem) {
             return driver.wait(until.elementIsEnabled(elem), 40000).then(function () {
+                delay(1000);
                 return elem.click();
             })
         })
@@ -351,6 +355,7 @@ const waitForElementToBeClickableForElement = (elFn) => {
 
 //26. Wait for the element to be attached to the DOM and then click using xpath
 waitForElementToBeClickable = exports.waitForElementToBeClickable = function (xpath) {
+    
     return waitForElementToBeClickableForElement(() => By.xpath(xpath));
 };
 
@@ -638,13 +643,13 @@ proPlanAddCreditCard = exports.proPlanAddCreditCard = function (cardNumber, expi
 //50. Add a new Link Click Conversion from the settings page
 addNewLinkClickGoal = exports.addNewLinkClickGoal = async function (goalUrl, goalName) {
     await goToGoalsSettings();
-    await waitForElementToBeClickableById("settingsConversionsAddGoals");
+    await waitForElementToBeClickableById("settingsAddGoal");
     await waitForElementToBeClickableById("addGoalsLinkClicks");
     await waitForElementToSendKeysByid("goalUrl", goalUrl);
     await waitForElementToSendKeysByid("goalName", goalName);
-    await driver.executeScript("window.scrollTo(0,document.body.scrollHeight));");
+    await driver.executeScript("window.scrollTo(0,500);");
     await waitForElementToBeClickableById("addClickGoal");
-    await waitForElementToBeClickableById("settingsSaveChangesBottom");
+    //await waitForElementToBeClickableById("settingsSaveChangesBottom");
     await val.validateLinkClickGoal(goalName);
 };
 
@@ -653,10 +658,10 @@ addNewFormSubmissionGoal = exports.addNewFormSubmissionGoal = async function (fo
     form=form || commonUserData.formGoalXpath;
     goalName=goalName ||commonUserData.formGoalName;
     await goToGoalsSettings();
-    await waitForElementToBeClickableById("settingsConversionsAddGoals");
+    await waitForElementToBeClickableById("settingsAddGoal");
     await waitForElementToBeClickableById("addGoalsFormSubmission");
     await waitForElementToBeClickableById("launchVisualizer");
-    await delay(2000);
+    await delay(5000);
     await waitForElementToBeClickable("//button[@class='quietly-tracker__module--button']");
     await waitForElementToBeClickable(form);
     await waitForElementToSendKeysByid("quietly-tracker__module--form",goalName);
@@ -778,20 +783,21 @@ addNewPatternLinkClickGoal = exports.addNewPatternLinkClickGoal = async function
 };
 
 //65. Upgrade to Pro Plan
-upgradeToProPlanAndRefresh=exports.upgradeToProPlanAndRefresh=async function(cardNumber,expiryDate,nameOnCard,cvcNumber){
+upgradeToProPlan=exports.upgradeToProPlan=async function(cardNumber,expiryDate,nameOnCard,cvcNumber){
     cardNumber = cardNumber || commonUserData.cardNumber;
     expiryDate = expiryDate || commonUserData.expiryDate;
     nameOnCard = nameOnCard || commonUserData.nameOnCard;
     cvcNumber = cvcNumber || commonUserData.cvcNumber;
-    await waitForElementToBeClickableById("upgradeToProPlanNext");
+    //await waitForElementToBeClickableById("upgradeToProPlanNext");
     await creditCardInfoSettings(cardNumber,expiryDate,nameOnCard,cvcNumber);
+    await delay(10000);
     await val.validateUpgradeToProPlanSuccess();
     //await waitForElementToBeClickableById("upgradedToProAddCompetitors");
-    await delay(5000);
-    await waitForElementToBeClickableById("refreshDataBtn");
-    await delay(3000);
-    await waitForElementToBeClickableById("refreshDataNowBtn");
-    await waitForElementToBeClickableById("refreshDataNowBtn");
+    // await delay(5000);
+    // await waitForElementToBeClickableById("refreshDataBtn");
+    // await delay(3000);
+    // await waitForElementToBeClickableById("refreshDataNowBtn");
+    // await waitForElementToBeClickableById("refreshDataNowBtn");
 };
 
 //66. Upgrade to monthly pro plan
@@ -874,6 +880,7 @@ copyTrackerSnippetToWebsite=exports.copyTrackerSnippetToWebsite=async function (
     await driver.switchTo().window(allHandles[1]);
     await delay(2000);
     await loginAsAdmin();
+    await delay(2000);
     await waitForElementToBeClickableById("menu-appearance");
     await waitForElementToBeClickable("//a[@href='theme-editor.php']");
     await waitForElementToBeClickable("//a[@href='https://stagingblog.quiet.ly/wordpress/wp-admin/theme-editor.php?file=header.php&theme=quietly']");
@@ -935,6 +942,7 @@ loginAsAdmin=exports.loginAsAdmin=async function (wpAdminName,wpAdminPass) {
 installTrackerSnippetFromSettingsPage = exports.installTrackerSnippetFromSettingsPage =async function (wpUrl) {
     wpUrl = wpUrl || commonUserData.wpUrl;
     await goToAnalyticsCode();
+    await delay(2000);
     await waitForElementToBeClickableById("trackerTabPlugin");
     //await waitForElementToBeClickable("//a[@href='" + commonUserData.installPageHref + "']");
     let propertyID=await getPropertyIDFromInstallPage();
@@ -1040,6 +1048,23 @@ goToGoogleAnalyticsSettings=exports.goToGoogleAnalyticsSettings=async function()
     await settingsOptions();
     await waitForElementToBeClickableById("pgoogleAnalyticsLink");
 };
+
+//84. Go to the Home Settings Page
+goToHomeSettings=exports.goToHomeSettings=async function() {
+    await waitForElementToBeClickable("//a[@class='button button-onboarding']");
+    await settingsOptions();
+    await waitForElementToBeClickableById("homeSettingsLink");
+}
+
+//85. Sync Google Analytics from Homepage
+syncGoogleAnalyticsFromHome=exports.syncGoogleAnalyticsFrhomHome=async function() {
+    await waitForElementToBeClickable("//a[@class='button button button-onboarding']");
+    await waitForElementToBeClickableById("importGAbtn");
+    await waitForElementToBeClickable("//div[@data-identifier='" + commonUserData.userName + "']");
+    await allowAccess('Allow');
+    await delay(5000);
+    await provideGoogleAnalyticsInfo();
+}
 
 /*//84. Import Google Analytics
 importGAFromSettings=exports.importGAFromSettings=async function (email,account,property,view) {
