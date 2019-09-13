@@ -354,7 +354,7 @@ validateErrorMessage=exports.validateErrorMessage=function (expText) {
 //23. Validate the Credit Card Info Error Messages
 validateInvalidURL = exports.validateInvalidURL = async function (websiteUrl) {
     websiteUrl = websiteUrl || commonUserData.websiteUrl;
-    await common.waitForElementToSendKeysByid("websiteUrl", websiteUrl);
+    await common.waitForElementToSendKeysById("websiteUrl", websiteUrl);
     await validateElementTextByXpath("//span[@class='onboarding-errors']","Please enter the link to a specific post!");
 };
 
@@ -541,3 +541,22 @@ validatePluginInstallSuccessMessage=exports.validatePluginInstallSuccessMessage=
     await validateElementTextByID("codeInstalledMessage","Quietly Insights analytics code successfully installed");
 };
 
+//44. Validate competetior has been added for homepage
+validateHomepageForAddCompetetiors=exports.validateHomepageForAddCompetetiors = async function(expText, index) {
+    //if no index has been sent in, default to 0
+    if(!index)
+    {
+        index = 0;
+    }
+    competetiorHeadingID = "overviewCompetitorHeading" + index;
+    await driver.wait(until.elementsLocated(By.id(competetiorHeadingID)),60000);
+    await validateElementTextToIncludeByID(competetiorHeadingID, expText.toUpperCase());
+}
+
+//45. Validate no GA insights for the current site in homepage
+validateNoGACompetitorForHomepage=exports.validateNoGACompetitorForHomepage = async function (siteUrl) {
+    //find no tile content text
+    await validateElementToIncludeTextByClassName("tile-no-content__text",
+        "We couldn’t find any high-performing content"
+    );
+}
