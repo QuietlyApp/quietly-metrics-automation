@@ -88,7 +88,7 @@ freePlanOnboardingWithComp=exports.freePlanOnboardingWithComp=async function(web
     console.log('provideBlogUrl', websiteUrl);
     await waitForElementToSendKeys("//input[@class='-onboarding-border']", websiteUrl);
     await val.validateBlogsFound();
-    await waitForElementToSendKeysByid("competitor1",competitor);
+    await waitForElementToSendKeysById("competitor1",competitor);
     await delay(2000);
     await waitForElementToBeClickableById("reportNextStep");
     await val.validateDashboard();
@@ -118,7 +118,7 @@ creditCardInfo = exports.creditCardInfo = async function (cardNumber, expiryDate
     await switchToIframeAndSendKeys("//iframe[@title='Secure payment input frame']", "//input[@name='cardnumber']", cardNumber);
     await switchToIframeAndSendKeys("//iframe[@name='__privateStripeFrame6']", "//input[@name='exp-date']", expiryDate);
     await switchToIframeAndSendKeys("//iframe[@name='__privateStripeFrame7']", "//input[@name='cvc']", cvcNumber);
-    await waitForElementToSendKeysByid("cardname", nameOnCard);
+    await waitForElementToSendKeysById("cardname", nameOnCard);
     await delay(2000);
 };
 
@@ -266,7 +266,7 @@ selectCompetitors = exports.selectCompetitors = function (competitors) {
             let result = x + 1;
             console.log("competitors id: competitor" + result);
             x = result;
-            return waitForElementToSendKeysByid("competitor" + result, nextElem);
+            return waitForElementToSendKeysById("competitor" + result, nextElem);
         }).catch(function (err) {
             return console.trace(err);
         })
@@ -306,13 +306,13 @@ waitForElementToSendKeys = exports.waitForElementToSendKeys = function (xpath, e
 };
 
 //24. Wait for the element to be attached to the DOM and sendKeys using id
-waitForElementToSendKeysByid = exports.waitForElementToSendKeysByid = function (id, expText) {
+waitForElementToSendKeysById = exports.waitForElementToSendKeysById = function (id, expText) {
     const retryOptions = {
         retries: 3,
         factor: 1,
         minTimeout: 1000
     };
-    console.log('waitForElementToSendKeysByid', id, expText);
+    console.log('waitForElementToSendKeysById', id, expText);
     return promiseRetry(function (retry) {
         return driver.findElement(By.id(id)).then(function (elem) {
             return driver.wait(until.elementIsEnabled(elem), 30000).then(function () {
@@ -323,7 +323,7 @@ waitForElementToSendKeysByid = exports.waitForElementToSendKeysByid = function (
     .then(function (value) {
 
     }, function (err) {
-        console.error("waitForElementToSendKeysByid", err);
+        console.error("waitForElementToSendKeysById", err);
         throw err
     });
 };
@@ -484,7 +484,7 @@ updateCreditCard = exports.updateCreditCard = async function (cardNumber, expiry
     await switchToDynamicIframeAndSendKeys(0,"//input[@name='cardnumber']", cardNumber);
     await switchToDynamicIframeAndSendKeys(1,"//input[@name='exp-date']", expiryDate);
     await switchToDynamicIframeAndSendKeys(2,"//input[@name='cvc']", cvcNumber);
-    await waitForElementToSendKeysByid("cardname", nameOnCard);
+    await waitForElementToSendKeysById("cardname", nameOnCard);
     if (update === "yes") {
         await waitForElementToBeClickableById("settingsUpdateCreditCard");
         await delay(5000);
@@ -616,7 +616,7 @@ addCreditCard = exports.addCreditCard = function (cardNumber, expiryDate, nameOn
     }).then(function () {
         return switchToIframeAndSendKeys("//iframe[@name='__privateStripeFrame5']", "//input[@name='exp-date']", expiryDate);
     }).then(function () {
-        return waitForElementToSendKeysByid("cardname", nameOnCard);
+        return waitForElementToSendKeysById("cardname", nameOnCard);
     }).then(function () {
         return switchToIframeAndSendKeys("//iframe[@name='__privateStripeFrame6']", "//input[@name='cvc']", cvcNumber);
     }).then(function () {
@@ -645,8 +645,8 @@ addNewLinkClickGoal = exports.addNewLinkClickGoal = async function (goalUrl, goa
     await goToGoalsSettings();
     await waitForElementToBeClickableById("settingsAddGoal");
     await waitForElementToBeClickableById("addGoalsLinkClicks");
-    await waitForElementToSendKeysByid("goalUrl", goalUrl);
-    await waitForElementToSendKeysByid("goalName", goalName);
+    await waitForElementToSendKeysById("goalUrl", goalUrl);
+    await waitForElementToSendKeysById("goalName", goalName);
     await driver.executeScript("window.scrollTo(0,500);");
     await waitForElementToBeClickableById("addClickGoal");
     //await waitForElementToBeClickableById("settingsSaveChangesBottom");
@@ -664,7 +664,7 @@ addNewFormSubmissionGoal = exports.addNewFormSubmissionGoal = async function (fo
     await delay(5000);
     await waitForElementToBeClickable("//button[@class='quietly-tracker__module--button']");
     await waitForElementToBeClickable(form);
-    await waitForElementToSendKeysByid("quietly-tracker__module--form",goalName);
+    await waitForElementToSendKeysById("quietly-tracker__module--form",goalName);
     await waitForElementToBeClickable("//button[@class='quietly-tracker__module--button']");
     await val.validateFormSubmissionGoal(goalName);
 };
@@ -676,7 +676,7 @@ providePropertyName = exports.providePropertyName = function (reportText, emailI
     return waitForElementToBeClickableById("propertyName").then(function () {
         return driver.findElement(By.id("propertyName")).clear();
     }).then(function () {
-        return waitForElementToSendKeysByid("propertyName", reportText);
+        return waitForElementToSendKeysById("propertyName", reportText);
     }).then(function () {
         if (emailIds.length > 0) {
             console.log(emailIds.length);
@@ -773,8 +773,8 @@ addNewPatternLinkClickGoal = exports.addNewPatternLinkClickGoal = async function
     await goToGoalsSettings();
     await waitForElementToBeClickableById("settingsConversionsAddGoals");
     await waitForElementToBeClickableById("addGoalsLinkClicks");
-    await waitForElementToSendKeysByid("goalUrl", goalUrl);
-    await waitForElementToSendKeysByid("goalName", goalName);
+    await waitForElementToSendKeysById("goalUrl", goalUrl);
+    await waitForElementToSendKeysById("goalName", goalName);
     await waitForElementToBeClickableById("isPrefix");
 
     await waitForElementToBeClickableById("addClickGoal");
@@ -822,7 +822,7 @@ creditCardInfoSettings=exports.creditCardInfoSettings= async function(cardNumber
     await switchToDynamicIframeAndSendKeys(0,"//input[@name='cardnumber']", cardNumber);
     await switchToDynamicIframeAndSendKeys(1,"//input[@name='exp-date']", expiryDate);
     await switchToDynamicIframeAndSendKeys(2,"//input[@name='cvc']", cvcNumber);
-    await waitForElementToSendKeysByid("cardname", nameOnCard);
+    await waitForElementToSendKeysById("cardname", nameOnCard);
     await waitForElementToBeClickableById("settingsUpdateCreditCard");
     await delay(5000);
 };
@@ -830,7 +830,7 @@ creditCardInfoSettings=exports.creditCardInfoSettings= async function(cardNumber
 //68. Rename the report from the settings page
 renameReportSettings=exports.renameReportSettings=async function (repName) {
     await goToPropertySettings();
-    await waitForElementToSendKeysByid("reportName",repName);
+    await waitForElementToSendKeysById("reportName",repName);
     await waitForElementToBeClickableById("settingsSaveChangesBottom");
 };
 
@@ -841,7 +841,7 @@ changeWebsiteSettings=exports.changeWebsiteSettings=async function (webURL) {
     await waitForElementToBeClickable("//button[@class='button button-onboarding']");
     await waitForElementToBeClickableById("websiteUrl").clear();
     await delay(2000);
-    await waitForElementToSendKeysByid("websiteUrl",webURL);
+    await waitForElementToSendKeysById("websiteUrl",webURL);
     await waitForElementToBeClickableById("settingsSaveChangesBottom");
 };
 
@@ -932,8 +932,8 @@ copyTrackerSnippetToWebsite=exports.copyTrackerSnippetToWebsite=async function (
 loginAsAdmin=exports.loginAsAdmin=async function (wpAdminName,wpAdminPass) {
     wpAdminName = wpAdminName || commonUserData.wpAdminName;
     wpAdminPass = wpAdminPass || commonUserData.wpAdminPassword;
-    await waitForElementToSendKeysByid("user_login", wpAdminName);
-    await waitForElementToSendKeysByid("user_pass", wpAdminPass);
+    await waitForElementToSendKeysById("user_login", wpAdminName);
+    await waitForElementToSendKeysById("user_pass", wpAdminPass);
     await waitForElementToBeClickableById("wp-submit");
     await delay(2000);
 };
@@ -1011,7 +1011,7 @@ addEmails = exports.addEmails = function (emailIds) {
     return emailIds.reduce(function (currElem, emailID) {
         return currElem.then(function () {
             return waitForElementToBeClickable("//a[@class='recipients-table_add']").then(function () {
-                return waitForElementToSendKeysByid("newRecipient", emailID).then(function () {
+                return waitForElementToSendKeysById("newRecipient", emailID).then(function () {
                     return waitForElementToBeClickable("//*[contains(text(),'Add')]");
                 })
             })
@@ -1066,18 +1066,9 @@ syncGoogleAnalyticsFromHome=exports.syncGoogleAnalyticsFrhomHome=async function(
     await provideGoogleAnalyticsInfo();
 }
 
-/*//84. Import Google Analytics
-importGAFromSettings=exports.importGAFromSettings=async function (email,account,property,view) {
-    email= email || commonUserData.userName;
-    account = account || commonUserData.account;
-    property = property || commonUserData.property;
-    view = view || commonUserData.view;
-    await goToGoogleAnalyticsSettings();
-    await waitForElementToBeClickableById("installAnalyticsCode");
-    let emails=await getTextFromElementByID("view_container");
-   console.log(emails);
-   await waitForElementToBeClickableById("importGAbtn");
-    await signInWithGoogleAndAllow();
-    await provideGoogleAnalyticsInfo();
-};*/
-
+//86. Add competetior from Homepage
+addCompetitorFromHome=exports.addCompetitorFromHome=async function(siteUrl) {
+    await waitForElementToSendKeysById
+    await waitForElementToSendKeysById("overviewCompetitorInput1", siteUrl);
+    await waitForElementToBeClickableById("overviewCompetitor1");
+}
