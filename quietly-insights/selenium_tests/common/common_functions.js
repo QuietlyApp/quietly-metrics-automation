@@ -1049,7 +1049,7 @@ goToGoogleAnalyticsSettings=exports.goToGoogleAnalyticsSettings=async function()
     await waitForElementToBeClickableById("pgoogleAnalyticsLink");
 };
 
-//84. Go to the Home Settings Page
+//84. Go to the Home Settings Page after onboarding
 goToHomeSettings=exports.goToHomeSettings=async function() {
     await waitForElementToBeClickable("//a[@class='button button-onboarding']");
     await settingsOptions();
