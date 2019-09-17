@@ -391,17 +391,16 @@ selectPlanType=exports.selectPlanType=async function (planType = "Monthly Pro") 
 //30. Change the Plan type after logging in into Quietly Insights
 onboardingChangePlan=exports.onboardingChangePlan= async function(planType) {
     if (planType === 'Free') {
-        await waitForElementToBeClickableById('billingFreePlanSelection');
+        await waitForElementToBeClickableById('freePlan');
     } else if (planType === "Annual Pro") {
-        await waitForElementToBeClickableById("switchToProPlanLink");
-        await waitForElementToBeClickableById("switchToYearlyProPlanLink");
+        await waitForElementToBeClickableById("proPlan");
+        await driver.executeScript("window.scrollTo(0,500);");
+        await waitForElementToBeClickableById("annually");
     } else if (planType === "Monthly Pro") {
-        await waitForElementToBeClickableById("switchToProPlanLink");
-        await waitForElementToBeClickableById("switchToMonthlyProPlanLink");
+        await waitForElementToBeClickableById("proPlan");
+        await driver.executeScript("window.scrollTo(0,500);");
+        await waitForElementToBeClickableById("monthly");
     }
-    await delay(2000);
-    await waitForElementToBeClickableById("billingNextStep");
-    await delay(2000);
 };
 
 //31. Close the Browser
