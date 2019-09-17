@@ -131,7 +131,7 @@ describe('Update Credit Card Details, #updatecreditcard#', function () {
         await common.delay(2000);
         await val.validateCreditCardError("Error: Please enter a valid cardholder name");
 
-        await common.waitForElementToSendKeysByid("cardname", "Prathibha123");
+        await common.waitForElementToSendKeysById("cardname", "Prathibha123");
         await common.waitForElementToBeClickableById("settingsUpdateCreditCard");
         await common.delay(2000);
         await val.validateCreditCardError("Error: Please enter a valid cardholder name");
@@ -161,7 +161,7 @@ describe('Update Credit Card Details, #updatecreditcard#', function () {
         await common.delay(2000);
         await val.validateCreditCardError("Error: Please enter a valid cardholder name");
 
-        await common.waitForElementToSendKeysByid("cardname", "Prathibha123");
+        await common.waitForElementToSendKeysById("cardname", "Prathibha123");
         await common.waitForElementToBeClickableById("settingsUpdateCreditCard");
         await common.delay(2000);
         await val.validateCreditCardError("Error: Please enter a valid cardholder name");
