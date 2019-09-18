@@ -1,6 +1,7 @@
 const common = require('../common/common_functions');
 const val = require('../common/validations');
 const commonBeforeAfter = require('../common/commonBeforeAfter');
+const {user: commonUserData} = require('../common/common_data');
 
 //Number of Tests: 12
 
@@ -123,12 +124,57 @@ describe('Homepage Automated Tests, #google_analytics_tests#', function () {
         await val.validateNoGACompetitorForHomepage("www.test.com");
         await common.logout();
     });
-    // it('Test Case 13: Free User - Add more competetiors from homepage', async function() {
-    //     await common.goToLandingPage('Free');
-    //     await common.signInWithGmail();
-    //     await common.basicOnboarding("blog.quiet.ly");
-    //     await common.goToHomeSettings();
-    //     await common.waitForElementToBeClickableById("overviewAddMoreCompetitors");
-    //     await common.logout();
-    // });
+    it('Test Case 13: Verify homepage navigator with Free User', async function() {
+        await common.goToLandingPage('Free');
+        await common.signInWithGmail();
+        await common.freePlanOnboardingWithComp();
+        sitePrefix = commonUserData.url;
+        linksList = [
+            ['navigationButtonLink', '0/overview'],
+            ['homeSettingsLink', '0/overview'],
+            ['startGuideSettingsLink', '0/startguide'],
+            ['competitorsSettingsLink', '0/competitors-landing'],
+            ['analyticsSettingsLink', '0/analytics'],
+        ]
+        contentLinksList = [
+            ['trendingTopicsLink', '0/topic-recommendations?mode=performed_well'],
+            ['seasonalTopicsLink', '0/topic-recommendations?mode=planning_ahead'],
+            ['savedTopicsLink', '0/saved-topics'],
+        ]
+        settingsLinksList = [
+            ['propertySettingsLink', '0/blogreport'],
+            ['topicPreferencesLink', '0/settingstopicpreferences'],
+            ['recipientsLink', '0/recipients'],
+            ['pgoogleAnalyticsLink', '0/settingsgoogle'],
+            ['goalsLink', '0/conversions'],
+            ['competitorsLink', '0/settingscompetitors'],
+            ['analyticsCodeLink', '0/install'],
+        ]
+        //iterate thru links first
+        for(i=0 ; i <linksList.length ; i++)
+        {   linkItem = linksList[i];
+            await common.waitForElementToBeClickableById(linkItem[0]);
+            await val.validatePageURL(sitePrefix + linkItem[1]);
+        }
+        await common.waitForElementToBeClickableById('contentIdeasSettingsLink');
+        for(i=0 ; i < contentLinksList.length ; i++)
+        {   linkItem = contentLinksList[i];
+            await common.waitForElementToBeClickableById(linkItem[0]);
+            await val.validatePageURL(sitePrefix + linkItem[1]);
+        }
+        await common.waitForElementToBeClickableById('settingsLink');
+        for(i=0 ; i < settingsLinksList.length ; i++)
+        {   linkItem = settingsLinksList[i];
+            await common.waitForElementToBeClickableById(linkItem[0]);
+            await val.validatePageURL(sitePrefix + linkItem[1]);
+        }
+    });
+    it('Test Case 14: Free User - Add more competetiors from homepage', async function() {
+        await common.goToLandingPage('Free');
+        await common.signInWithGmail();
+        await common.basicOnboarding("blog.quiet.ly");
+        await common.goToHomeSettings();
+        await common.waitForElementToBeClickableById("overviewAddMoreCompetitors");
+        await common.logout();
+    });
 });
