@@ -74,6 +74,7 @@ signInWithGmail= exports.signInWithGmail= async function (email, password) {
 basicOnboarding=exports.basicOnboarding=async function(websiteUrl){
     websiteUrl = websiteUrl || commonUserData.websiteUrl;
     console.log('provideBlogUrl', websiteUrl);
+    await driver.wait(until.elementLocated(By.xpath("//div[@class='onboarding-sub-header']")), 30000);
     await waitForElementToSendKeys("//input[@class='-onboarding-border']", websiteUrl);
     await val.validateBlogsFound();
     await waitForElementToBeClickableById("reportNextStep");
@@ -86,6 +87,7 @@ freePlanOnboardingWithComp=exports.freePlanOnboardingWithComp=async function(web
     websiteUrl = websiteUrl || commonUserData.websiteUrl;
     competitor=competitor || commonUserData.competitor;
     console.log('provideBlogUrl', websiteUrl);
+    await driver.wait(until.elementLocated(By.xpath("//div[@class='onboarding-sub-header']")), 30000);
     await waitForElementToSendKeys("//input[@class='-onboarding-border']", websiteUrl);
     await val.validateBlogsFound();
     await waitForElementToSendKeysById("competitor1",competitor);
@@ -100,6 +102,7 @@ proPlanOnboardingWithComp=exports.proPlanOnboardingWithComp=async function(websi
     websiteUrl = websiteUrl || commonUserData.websiteUrl;
     competitors=competitors || commonUserData.allCompetitors;
     console.log('provideBlogUrl', websiteUrl);
+    await driver.wait(until.elementLocated(By.xpath("//div[@class='onboarding-sub-header']")), 30000);
     await waitForElementToSendKeys("//input[@class='-onboarding-border']", websiteUrl);
     await val.validateBlogsFound();
     await selectCompetitors(competitors);
@@ -1067,7 +1070,6 @@ syncGoogleAnalyticsFromHome=exports.syncGoogleAnalyticsFrhomHome=async function(
 
 //86. Add competetior from Homepage
 addCompetitorFromHome=exports.addCompetitorFromHome=async function(siteUrl) {
-    await waitForElementToSendKeysById
     await waitForElementToSendKeysById("overviewCompetitorInput1", siteUrl);
     await waitForElementToBeClickableById("overviewCompetitor1");
 }
