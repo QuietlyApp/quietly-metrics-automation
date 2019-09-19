@@ -13,7 +13,7 @@ describe('Homepage Automated Tests, #google_analytics_tests#', function () {
         await common.signInWithGmail();
         await common.basicOnboarding("www.test.com");
         await common.goToHomeSettings();
-        await common.syncGoogleAnalyticsFrhomHome();
+        await common.syncGoogleAnalyticsFromHome();
         await common.logout();
     });
     it('Test Case 2: Monthly Pro User is able to set GA Plugin from the Home Page', async function() {
@@ -22,7 +22,7 @@ describe('Homepage Automated Tests, #google_analytics_tests#', function () {
         await common.creditCardInfo("371449635398431", "12/38", "Melinda", "392");
         await common.basicOnboarding("www.test.com");
         await common.goToHomeSettings();
-        await common.syncGoogleAnalyticsFrhomHome();
+        await common.syncGoogleAnalyticsFromHome();
         await common.logout();
     });
     it('Test Case 3: Annual Pro User is able to set GA Plugin from the Home Page', async function() {
@@ -31,7 +31,7 @@ describe('Homepage Automated Tests, #google_analytics_tests#', function () {
         await common.creditCardInfo("371449635398431", "12/38", "Melinda", "392");
         await common.basicOnboarding("www.test.com");
         await common.goToHomeSettings();
-        await common.syncGoogleAnalyticsFrhomHome();
+        await common.syncGoogleAnalyticsFromHome();
         await common.logout();
     });
     it('Test Case 4: Free User can add competetior from homepage if no competetior URL has been entered', async function() {

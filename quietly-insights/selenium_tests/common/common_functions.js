@@ -1059,7 +1059,7 @@ goToHomeSettings=exports.goToHomeSettings=async function() {
 }
 
 //85. Sync Google Analytics from Homepage
-syncGoogleAnalyticsFromHome=exports.syncGoogleAnalyticsFrhomHome=async function() {
+syncGoogleAnalyticsFromHome=exports.syncGoogleAnalyticsFromHome=async function() {
     await waitForElementToBeClickable("//a[@class='button button button-onboarding']");
     await waitForElementToBeClickableById("importGAbtn");
     await waitForElementToBeClickable("//div[@data-identifier='" + commonUserData.userName + "']");
