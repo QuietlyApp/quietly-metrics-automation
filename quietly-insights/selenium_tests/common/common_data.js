@@ -8,7 +8,7 @@ const {config: loadEnv} = require('dotenv');
 
 let configs = {
     app: {
-        browser: "Chrome",
+        browser: "Firefox",
         stripeKey: "sk_test_CLAbYrrDZDIuzDcXdrOqAkyi",
         seleniumGridIp: "127.0.0.1",
         server:"http://127.0.0.1:4444/wd/hub"

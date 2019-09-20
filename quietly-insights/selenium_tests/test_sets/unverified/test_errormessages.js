@@ -146,7 +146,7 @@ describe('Test Error Messages, #test_errormessages#', function () {
         await val.validateMonthlyReport();
         await common.delay(2000);
         await common.addNewProperty("Monthly");
-        await common.waitForElementToSendKeysByid("websiteUrl",commonUserData.websiteUrl);
+        await common.waitForElementToSendKeysById("websiteUrl",commonUserData.websiteUrl);
         await common.waitForElementToBeClickableById("reportNextStep");
         await val.validateSameDomainError();
         await common.switchProperty("topNavSwitchPropertystagingblog.quiet.ly");
@@ -307,7 +307,7 @@ describe('Test Error Messages, #test_errormessages#', function () {
         await val.validateMonthlyReport();
         await common.delay(2000);
         await common.addNewProperty("Monthly");
-        await common.waitForElementToSendKeysByid("websiteUrl",commonUserData.websiteUrl);
+        await common.waitForElementToSendKeysById("websiteUrl",commonUserData.websiteUrl);
         await common.waitForElementToBeClickableById("reportNextStep");
         await val.validateSameDomainError();
         await common.switchProperty("topNavSwitchPropertystagingblog.quiet.ly");

@@ -551,7 +551,7 @@ validateHomepageForAddCompetetiors=exports.validateHomepageForAddCompetetiors = 
     competetiorHeadingID = "overviewCompetitorHeading" + index;
     await driver.wait(until.elementsLocated(By.id(competetiorHeadingID)),60000);
     await validateElementTextToIncludeByID(competetiorHeadingID, expText.toUpperCase());
-}
+};
 
 //45. Validate no GA insights for the current site in homepage
 validateNoGACompetitorForHomepage=exports.validateNoGACompetitorForHomepage = async function (siteUrl) {
@@ -560,5 +560,4 @@ validateNoGACompetitorForHomepage=exports.validateNoGACompetitorForHomepage = as
     await validateElementToIncludeTextByClassName("tile-no-content__text",
         "We couldn’t find any high-performing content"
     );
-}
-
+};

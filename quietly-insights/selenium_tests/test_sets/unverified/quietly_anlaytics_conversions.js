@@ -340,8 +340,8 @@ it('Test Case 6: Monthly pro Plan- Check for error message if user tries to add 
     await common.goToGoalsSettings();
     await common.waitForElementToBeClickableById("settingsConversionsAddGoals");
     await common.waitForElementToBeClickableById("addGoalsLinkClicks");
-    await common.waitForElementToSendKeysByid("goalUrl", "https://stagingblog.quiet.ly/blog/case-studies/builddirect/");
-    await common.waitForElementToSendKeysByid("goalName", "Build Direct");
+    await common.waitForElementToSendKeysById("goalUrl", "https://stagingblog.quiet.ly/blog/case-studies/builddirect/");
+    await common.waitForElementToSendKeysById("goalName", "Build Direct");
     await common.waitForElementToBeClickableById("addClickGoal");
     await val.validateGoalError();
     await common.delay(2000);
@@ -362,8 +362,8 @@ it('Test Case 16: Annual pro Plan- Check for error message if user tries to add 
     await common.goToGoalsSettings();
     await common.waitForElementToBeClickableById("settingsConversionsAddGoals");
     await common.waitForElementToBeClickableById("addGoalsLinkClicks");
-    await common.waitForElementToSendKeysByid("goalUrl", "https://stagingblog.quiet.ly/blog/case-studies/builddirect/");
-    await common.waitForElementToSendKeysByid("goalName", "Build Direct");
+    await common.waitForElementToSendKeysById("goalUrl", "https://stagingblog.quiet.ly/blog/case-studies/builddirect/");
+    await common.waitForElementToSendKeysById("goalName", "Build Direct");
     await common.waitForElementToBeClickableById("addClickGoal");
     await val.validateGoalError();
     await common.delay(3000);
