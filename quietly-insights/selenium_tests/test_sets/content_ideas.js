@@ -6,7 +6,7 @@ const {user: commonUserData} = require('../common/common_data');
 describe('Homepage Automated Tests, #content_ideas_page#', function () {
     commonBeforeAfter.loadBeforeAndAfterEach();
 
-    it('Test Case 1: Free User is able to set GA Plugin from the Trending Topics Page', async function() {
+    it('AT-1: Free User is able to set GA Plugin from the Trending Topics Page', async function() {
         await common.goToLandingPage('Free');
         await common.signInWithGmail();
         await common.basicOnboarding("www.test.com");
@@ -15,7 +15,7 @@ describe('Homepage Automated Tests, #content_ideas_page#', function () {
         await common.syncGoogleAnalyticsFromHome();
         await common.logout();
     });
-    it('Test Case 2: Free User is able to set GA Plugin from the Seasonal Topics Page', async function() {
+    it('AT-2: Free User is able to set GA Plugin from the Seasonal Topics Page', async function() {
         await common.goToLandingPage('Free');
         await common.signInWithGmail();
         await common.basicOnboarding("www.test.com");
@@ -24,7 +24,7 @@ describe('Homepage Automated Tests, #content_ideas_page#', function () {
         await common.syncGoogleAnalyticsFromHome();
         await common.logout();
     });
-    it('Test Case 3: Monthly Pro User is able to set GA Plugin from the Trending Topics Page', async function() {
+    it('AT-3: Monthly Pro User is able to set GA Plugin from the Trending Topics Page', async function() {
         await common.goToLandingPage('Monthly Pro');
         await common.signInWithGmail();
         await common.creditCardInfo("371449635398431", "12/38", "Melinda", "392");
@@ -34,7 +34,7 @@ describe('Homepage Automated Tests, #content_ideas_page#', function () {
         await common.syncGoogleAnalyticsFromHome();
         await common.logout();
     });
-    it('Test Case 4: Monthly Pro User is able to set GA Plugin from the Seasonal Topics Page', async function() {
+    it('AT-4: Monthly Pro User is able to set GA Plugin from the Seasonal Topics Page', async function() {
         await common.goToLandingPage('Monthly Pro');
         await common.signInWithGmail();
         await common.creditCardInfo("371449635398431", "12/38", "Melinda", "392");
@@ -44,7 +44,7 @@ describe('Homepage Automated Tests, #content_ideas_page#', function () {
         await common.syncGoogleAnalyticsFromHome();
         await common.logout();
     });
-    it('Test Case 5: Annual Pro User is able to set GA Plugin from the Trending Topics Page', async function() {
+    it('AT-5: Annual Pro User is able to set GA Plugin from the Trending Topics Page', async function() {
         await common.goToLandingPage('Annual Pro');
         await common.signInWithGmail();
         await common.creditCardInfo("371449635398431", "12/38", "Melinda", "392");
@@ -54,7 +54,7 @@ describe('Homepage Automated Tests, #content_ideas_page#', function () {
         await common.syncGoogleAnalyticsFromHome();
         await common.logout();
     });
-    it('Test Case 6: Annual Pro User is able to set GA Plugin from the Seasonal Topics Page', async function() {
+    it('AT-6: Annual Pro User is able to set GA Plugin from the Seasonal Topics Page', async function() {
         await common.goToLandingPage('Annual Pro');
         await common.signInWithGmail();
         await common.creditCardInfo("371449635398431", "12/38", "Melinda", "392");

@@ -554,10 +554,30 @@ validateHomepageForAddCompetetiors=exports.validateHomepageForAddCompetetiors = 
 };
 
 //45. Validate no GA insights for the current site in homepage
+validateNoGAInsightsForHomepage=exports.validateNoGAInsightsForHomepage = async function () {
+    //find no tile content text
+    await driver.wait(until.elementsLocated(By.className("tile-no-content__text")),60000);
+    await validateElementToIncludeTextByClassName("tile-no-content__text",
+        "We couldn’t find enough data to recommend content ideas."
+    );
+};
+
 validateNoGACompetitorForHomepage=exports.validateNoGACompetitorForHomepage = async function (siteUrl) {
     //find no tile content text
     await driver.wait(until.elementsLocated(By.className("tile-no-content__text")),60000);
     await validateElementToIncludeTextByClassName("tile-no-content__text",
         "We couldn’t find any high-performing content"
     );
+};
+
+//46. Validate competetior has been added for competitors page
+validateComppageForAddCompetetiors=exports.validateComppageForAddCompetetiors = async function(expText, index) {
+    //if no index has been sent in, default to 0
+    if(!index)
+    {
+        index = 0;
+    }
+    competetiorHeadingID = "competitorLandingHeader" + index;
+    await driver.wait(until.elementsLocated(By.id(competetiorHeadingID)),60000);
+    await validateElementTextToIncludeByID(competetiorHeadingID, expText.toUpperCase());
 };
