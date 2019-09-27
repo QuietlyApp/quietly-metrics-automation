@@ -220,7 +220,7 @@ provideGoogleAnalyticsInfo = exports.provideGoogleAnalyticsInfo = async function
     await selectItemFromDropDown(propertyIdentifer, "//div[@role='option']", property);
     await selectItemFromDropDown(viewIdentifer, "//div[@role='option']", view);
     await waitForElementToBeClickableById("modalSaveAnalytics");
-    await delay(1000);
+    await delay(5000);
 };
 
 //18. Select Additional Goals
@@ -1066,6 +1066,15 @@ syncGoogleAnalyticsFromHome=exports.syncGoogleAnalyticsFromHome=async function()
     await allowAccess('Allow');
     await delay(5000);
     await provideGoogleAnalyticsInfo();
+}
+
+syncEmptyGoogleAnalyticsFromHome=exports.syncEmptyGoogleAnalyticsFromHome=async function() {
+    await waitForElementToBeClickable("//a[@class='button button button-onboarding']");
+    await waitForElementToBeClickableById("importGAbtn");
+    await waitForElementToBeClickable("//div[@data-identifier='" + commonUserData.userName + "']");
+    await allowAccess('Allow');
+    await delay(5000);
+    await provideGoogleAnalyticsInfo('Quietly', 'Quietly Marketing', 'Test');
 }
 
 //86. Add competetior from Homepage

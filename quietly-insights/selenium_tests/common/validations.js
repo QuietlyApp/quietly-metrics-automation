@@ -556,16 +556,20 @@ validateHomepageForAddCompetetiors=exports.validateHomepageForAddCompetetiors = 
 //45. Validate no GA insights for the current site in homepage
 validateNoGAInsightsForHomepage=exports.validateNoGAInsightsForHomepage = async function () {
     //find no tile content text
-    //await driver.wait(until.elementsLocated(By.className("tile-no-content__text")),60000);
     await common.delay(5000);
     await validateElementToIncludeTextByClassName("tile-no-content__text",
         "We couldn’t find enough data to recommend content ideas."
     );
 };
-
-validateNoGACompetitorForHomepage=exports.validateNoGACompetitorForHomepage = async function (siteUrl) {
+validateInsufficientGAInsightsForHomepage=exports.validateInsufficientGAInsightsForHomepage = async function () {
     //find no tile content text
-    //await driver.wait(until.elementsLocated(By.className("tile-no-content__text")),60000);
+    await common.delay(5000);
+    await validateElementToIncludeTextByClassName("tile-no-content__text",
+        "Looks like there’s not quite enough data for us to recommend content ideas."
+    );
+};
+validateNoGACompetitorForHomepage=exports.validateNoGACompetitorForHomepage = async function () {
+    //find no tile content text
     await common.delay(5000);
     await validateElementToIncludeTextByClassName("tile-no-content__text",
         "We couldn’t find any high-performing content"
