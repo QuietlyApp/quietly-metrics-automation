@@ -172,4 +172,34 @@ describe('Homepage Automated Tests, #google_analytics_tests#', function () {
             await val.validatePageURL(sitePrefix + linkItem[1]);
         }
     });
+
+    it('AT-67: Adding Free Account with insufficient GA information returns the proper message', async function () {
+        await common.goToLandingPage('Free');
+        await common.signInWithGmail();
+        await common.basicOnboarding("www.test.com");
+        await common.goToHomeSettings();
+        await common.syncEmptyGoogleAnalyticsFromHome();
+        await val.validateInsufficientGAInsightsForHomepage();
+        await common.logout();
+    });
+    it('AT-68: Adding Monthly Pro Account with insufficient GA information returns the proper message', async function () {
+        await common.goToLandingPage('Monthly Pro');
+        await common.signInWithGmail();
+        await common.creditCardInfo("371449635398431", "12/38", "Melinda", "392");
+        await common.basicOnboarding("www.test.com");
+        await common.goToHomeSettings();
+        await common.syncEmptyGoogleAnalyticsFromHome();
+        await val.validateInsufficientGAInsightsForHomepage();
+        await common.logout();
+    });
+    it('AT-69: Adding Annual Pro Account with insufficient GA information returns the proper message', async function () {
+        await common.goToLandingPage('Annual Pro');
+        await common.signInWithGmail();
+        await common.creditCardInfo("371449635398431", "12/38", "Melinda", "392");
+        await common.basicOnboarding("www.test.com");
+        await common.goToHomeSettings();
+        await common.syncEmptyGoogleAnalyticsFromHome();
+        await val.validateInsufficientGAInsightsForHomepage();
+        await common.logout();
+    });
 });
