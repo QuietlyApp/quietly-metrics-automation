@@ -691,9 +691,12 @@ providePropertyName = exports.providePropertyName = function (reportText, emailI
 };
 
 //53. Add a new property
-addNewProperty = exports.addNewProperty = async function (billingType) {
+addNewProperty = exports.addNewProperty = async function (billingType, promoCode) {
     await waitForElementToBeClickable("//div[@class='top-nav__arrow']");
     await waitForElementToBeClickableById("topNavCreateProperty");
+    if(promoCode){
+        addPromoCode(promoCode);
+    }
     if (billingType==="Monthly") {
         await waitForElementToBeClickableById("switchToMonthlyProPlanLink");
     }
@@ -803,12 +806,17 @@ upgradeToProPlan=exports.upgradeToProPlan=async function(cardNumber,expiryDate,n
 };
 
 //66. Upgrade to monthly pro plan
-selectBillingOption=exports.selectBillingOption=async function(billingOption){
+selectBillingOption=exports.selectBillingOption=async function(billingOption, promoCode){
     if (billingOption==="Monthly") {
         await waitForElementToBeClickableById("switchToMonthlyProPlanLink");
     }
     else if (billingOption==="Annual"){
         await waitForElementToBeClickableById("switchToYearlyProPlanLink");
+    }
+    //add promocode if it is specified
+    if(promoCode)
+    {
+        await addPromoCode(promoCode);
     }
     await waitForElementToBeClickableById("upgradeToProPlanNext");
     await delay(5000);
@@ -1082,3 +1090,12 @@ addCompetitorFromHome=exports.addCompetitorFromHome=async function(siteUrl) {
     await waitForElementToSendKeysById("overviewCompetitorInput1", siteUrl);
     await waitForElementToBeClickableById("overviewCompetitor1");
 }
+
+//87. Provide coupon code info
+addPromoCode = exports.addPromoCode = async function (promoCode) {
+    console.log('Applying Promo Code: ' + promoCode);
+    await waitForElementToSendKeysById("promocode", promoCode);
+    await waitForElementToBeClickableById("confirmCoupon");
+    await delay(5000);
+}
+
