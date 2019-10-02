@@ -1093,9 +1093,9 @@ addCompetitorFromHome=exports.addCompetitorFromHome=async function(siteUrl) {
 
 //87. Provide coupon code info
 addPromoCode = exports.addPromoCode = async function (promoCode) {
+    promoCode=promoCode|| commonUserData.promoCode;
     console.log('Applying Promo Code: ' + promoCode);
     await waitForElementToSendKeysById("promocode", promoCode);
     await waitForElementToBeClickableById("confirmCoupon");
     await delay(5000);
 }
-

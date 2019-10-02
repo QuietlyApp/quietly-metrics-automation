@@ -8,7 +8,7 @@ const chai = require('chai');
 describe('Test on-boarding in case of switching plan type after login, #onboarding_plan_switch#', function () {
     commonBeforeAfter.loadBeforeAndAfterEach();
 
-    it('AT-27: Login with Free Plan, switch to Monthly pro, complete on-boarding and check the Plan type', async function() {
+    it('C149: Login with Free Plan, switch to Monthly pro, complete on-boarding and check the Plan type', async function() {
         await common.goToLandingPage('Free');
         await common.signInWithGmail();
         await val.validatePlanType('Free');
@@ -19,7 +19,7 @@ describe('Test on-boarding in case of switching plan type after login, #onboardi
         await common.logout();
     });
 
-    it('AT-28:Login as Free Plan and switch to Annual pro', async function() {
+    it('C150:Login as Free Plan and switch to Annual pro', async function() {
         await common.goToLandingPage('Free');
         await common.signInWithGmail();
         await val.validatePlanType('Free');
@@ -28,7 +28,7 @@ describe('Test on-boarding in case of switching plan type after login, #onboardi
         await common.logout();
     });
 
-    it('AT-29:Login with Monthly Pro Plan and switch to Free Plan', async function() {
+    it('C151:Login with Monthly Pro Plan and switch to Free Plan', async function() {
         await common.goToLandingPage('Monthly Pro');
         await common.signInWithGmail();
         await val.validatePlanType('Monthly Pro');
@@ -37,7 +37,7 @@ describe('Test on-boarding in case of switching plan type after login, #onboardi
         await common.logout();
     });
 
-    it('AT-30:Login with Monthly Pro Plan and switch to Annual Pro Plan', async function() {
+    it('C152:Login with Monthly Pro Plan and switch to Annual Pro Plan', async function() {
         await common.goToLandingPage('Monthly Pro');
         await common.signInWithGmail();
         await val.validatePlanType('Monthly Pro');
@@ -46,7 +46,7 @@ describe('Test on-boarding in case of switching plan type after login, #onboardi
         await common.logout();
     });
 
-    it('AT-31:Login with Annual Pro Plan and switch to Free Plan', async function() {
+    it('C153:Login with Annual Pro Plan and switch to Free Plan', async function() {
         await common.goToLandingPage('Annual Pro');
         await common.signInWithGmail();
         await val.validatePlanType('Annual Pro');
@@ -55,7 +55,7 @@ describe('Test on-boarding in case of switching plan type after login, #onboardi
         await common.logout();
     });
 
-    it('AT-32:Login with Annual Pro Plan and switch to Monthly Pro Plan', async function() {
+    it('C154:Login with Annual Pro Plan and switch to Monthly Pro Plan', async function() {
         await common.goToLandingPage('Annual Pro');
         await common.signInWithGmail();
         await val.validatePlanType('Annual Pro');

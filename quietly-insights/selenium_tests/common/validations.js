@@ -579,11 +579,24 @@ validateNoGACompetitorForHomepage=exports.validateNoGACompetitorForHomepage = as
 //46. Validate competetior has been added for competitors page
 validateComppageForAddCompetetiors=exports.validateComppageForAddCompetetiors = async function(expText, index) {
     //if no index has been sent in, default to 0
-    if(!index)
-    {
-        index = 0;
-    }
+    index=index || 0;
     competetiorHeadingID = "competitorLandingHeader" + index;
     await driver.wait(until.elementsLocated(By.id(competetiorHeadingID)),60000);
     await validateElementTextToIncludeByID(competetiorHeadingID, expText.toUpperCase());
 };
+
+//47. Validate toast alert for promocode
+validatePromoCodeSuccess=exports.validatePromoCodeSuccess = async function(newPrice) {
+    newPrice=newPrice|| commonUserData.promoCodePrice;
+    await validateElementTextByID("toast-alert", "Success! Your discount has been applied.");
+}
+
+validatePromoCodeFailed=exports.validatePromoCodeFailed = async function() {
+    await validateErrorMessage("Hmm, we couldn’t find a promotion for this code. Check for typos and try again.");
+}
+
+validatePropertyPrice=exports.validatePropertyPrice = async function(price, index) {
+    index=index || 0;
+    price=price || commonUserData.promoCodePrice;
+    await validateElementTextToIncludeByID("subscriptionAmount" + index, price);
+}

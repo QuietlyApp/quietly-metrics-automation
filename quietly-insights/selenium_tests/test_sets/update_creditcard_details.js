@@ -9,7 +9,7 @@ const commonBeforeAfter = require('../common/commonBeforeAfter');
 describe('Update Credit Card Details, #updatecreditcard#', function () {
     commonBeforeAfter.loadBeforeAndAfterEach();
 
-    it('AT-33: Monthly Pro plan - Should display correct credit card information in the settings page and Stripe', async function () {
+    it('C155: Monthly Pro plan - Should display correct credit card information in the settings page and Stripe', async function () {
         await common.goToLandingPage('Monthly Pro');
         await common.signInWithGmail();
         await val.validatePlanType('Monthly Pro');
@@ -20,7 +20,7 @@ describe('Update Credit Card Details, #updatecreditcard#', function () {
         await common.logout();
     });
 
-    it('AT-34: Annual Pro plan - Should display correct credit card information in the settings page and Stripe', async function () {
+    it('C156: Annual Pro plan - Should display correct credit card information in the settings page and Stripe', async function () {
         await common.goToLandingPage('Annual Pro');
         await common.signInWithGmail();
         await val.validatePlanType('Annual Pro');
@@ -31,7 +31,7 @@ describe('Update Credit Card Details, #updatecreditcard#', function () {
         await common.logout();
     });
 
-    it('AT-35: Monthly Pro plan - Should update the credit card information in the settings page and stripe successfully', async function () {
+    it('C157: Monthly Pro plan - Should update the credit card information in the settings page and stripe successfully', async function () {
         await common.goToLandingPage('Monthly Pro');
         await common.signInWithGmail();
         await val.validatePlanType('Monthly Pro');
@@ -44,7 +44,7 @@ describe('Update Credit Card Details, #updatecreditcard#', function () {
         await common.logout();
     });
 
-    it('AT-36: Annual Pro plan - Should update the credit card information in the settings page and stripe successfully', async function () {
+    it('C158: Annual Pro plan - Should update the credit card information in the settings page and stripe successfully', async function () {
         await common.goToLandingPage('Annual Pro');
         await common.signInWithGmail();
         await val.validatePlanType('Annual Pro');
@@ -57,7 +57,7 @@ describe('Update Credit Card Details, #updatecreditcard#', function () {
         await common.logout();
     });
 
-    it('AT-37: Monthly Pro plan - Should not update any credit card changes if cancelled', async function () {
+    it('C159: Monthly Pro plan - Should not update any credit card changes if cancelled', async function () {
         await common.goToLandingPage('Monthly Pro');
         await common.signInWithGmail();
         await val.validatePlanType('Monthly Pro');
@@ -69,7 +69,7 @@ describe('Update Credit Card Details, #updatecreditcard#', function () {
         await common.logout();
     });
 
-    it('AT-38: Annual Pro plan - Should not update any credit card changes if cancelled', async function () {
+    it('C160: Annual Pro plan - Should not update any credit card changes if cancelled', async function () {
         await common.goToLandingPage('Annual Pro');
         await common.signInWithGmail();
         await val.validatePlanType('Annual Pro');
@@ -81,7 +81,7 @@ describe('Update Credit Card Details, #updatecreditcard#', function () {
         await common.logout();
     });
 
-    it('AT-39: Monthly Pro plan - Should throw an error if Credit Card Number is not entered', async function () {
+    it('C161: Monthly Pro plan - Should throw an error if Credit Card Number is not entered', async function () {
         await common.goToLandingPage('Monthly Pro');
         await common.signInWithGmail();
         await val.validatePlanType('Monthly Pro');
@@ -95,7 +95,7 @@ describe('Update Credit Card Details, #updatecreditcard#', function () {
         await common.logout();
     });
 
-    it('AT-40: Annual Pro plan - Should throw an error if Credit Card Number is not entered', async function () {
+    it('C162: Annual Pro plan - Should throw an error if Credit Card Number is not entered', async function () {
         await common.goToLandingPage('Annual Pro');
         await common.signInWithGmail();
         await val.validatePlanType('Annual Pro');
@@ -109,7 +109,7 @@ describe('Update Credit Card Details, #updatecreditcard#', function () {
         await common.logout();
     });
 
-    it('AT-41: Monthly Pro plan - Should throw errors when specific details are not provided', async function () {
+    it('C163: Monthly Pro plan - Should throw errors when specific details are not provided', async function () {
         await common.goToLandingPage('Monthly Pro');
         await common.signInWithGmail();
         await val.validatePlanType('Monthly Pro');
@@ -139,7 +139,7 @@ describe('Update Credit Card Details, #updatecreditcard#', function () {
         await common.logout();
     });
 
-    it('AT-42: Annual Pro plan - Should throw errors when specific details are not provided', async function () {
+    it('C164: Annual Pro plan - Should throw errors when specific details are not provided', async function () {
         await common.goToLandingPage('Annual Pro');
         await common.signInWithGmail();
         await val.validatePlanType('Annual Pro');
@@ -166,16 +166,6 @@ describe('Update Credit Card Details, #updatecreditcard#', function () {
         await common.delay(2000);
         await val.validateCreditCardError("Error: Please enter a valid cardholder name");
         await common.waitForElementToBeClickable("//a[@class='modal__close']");
-        await common.logout();
-    });
-
-    it('AT-43: Free plan - No credit card details should be available in the settings page', async function () {
-        await common.goToLandingPage('Free');
-        await common.signInWithGmail();
-        await val.validatePlanType('Free');
-        await common.basicOnboarding();
-        await common.goToAccountSettings();
-        await val.validateElementToIncludeTextByClassName("report-settings__form-label -plan","$0.00 per month");
         await common.logout();
     });
 });
