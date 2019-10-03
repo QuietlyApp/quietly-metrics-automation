@@ -105,12 +105,32 @@ validateElementTextByXpath = exports.validateElementTextByXpath = function (xpat
         return expect(actText).to.equal(expText);
     })
 };
+validateInputElementTextByXpath = exports.validateInputElementTextByXpath = function (xpath, expText) {
+    return driver.wait(until.elementLocated(By.xpath(xpath)), 20000)
+    .then(function (elem) {
+        return elem.getAttribute('value');
+    })
+    .then(function (actText) {
+        console.log(actText);
+        return expect(actText).to.equal(expText);
+    })
+};
 
 //8. Get the text of an element by Class Name and validate the expected text to be equal to the actual test
 validateElementTextByClassName = exports.validateElementTextByClassName = function (className, expText) {
     return driver.wait(until.elementLocated(By.className(className)), 30000)
     .then(function (elem) {
         return elem.getText();
+    }).then(function (actText) {
+        console.log("Runtime Text is: " + actText);
+        return expect(actText).to.equal(expText);
+
+    })
+};
+validateInputElementTextByClassName = exports.validateInputElementTextByClassName = function (className, expText) {
+    return driver.wait(until.elementLocated(By.className(className)), 30000)
+    .then(function (elem) {
+        return elem.getAttribute('value');
     }).then(function (actText) {
         console.log("Runtime Text is: " + actText);
         return expect(actText).to.equal(expText);
@@ -130,6 +150,18 @@ validateElementToIncludeTextByClassName = exports.validateElementToIncludeTextBy
             throw err;
     })
 };
+validateInputElementToIncludeTextByClassName = exports.validateInputElementToIncludeTextByClassName = function (className, expText) {
+    return driver.wait(until.elementLocated(By.className(className)), 20000)
+    .then(function (elem) {
+        return elem.getAttribute('value');
+    }).then(function (actText) {
+        console.log("Runtime Text is: " + actText);
+        return expect(actText).to.include(expText);
+    }).catch (function (err) {
+            throw err;
+    })
+};
+
 
 //10. Get the text of an element by ID and validate the expected text to be equal to the actual test
 validateElementTextByID = exports.validateElementTextByID = async function (ID, expText) {
@@ -140,13 +172,29 @@ validateElementTextByID = exports.validateElementTextByID = async function (ID, 
         })
     })
 };
-
+validateInputElementTextByID = exports.validateInputElementTextByID = async function (ID, expText) {
+    return driver.wait(until.elementLocated(By.id(ID)), 20000).then(function (elem) {
+        return elem.getAttribute('value').then(function (actText) {
+            console.log(actText);
+            return expect(actText).to.equal(expText);
+        })
+    })
+};
 
 //11. Get the text of an element by ID and validate the expected text to be equal to the actual test
 validateElementTextToIncludeByID = exports.validateElementTextToIncludeByID = function (ID, expText) {
     return driver.wait(until.elementLocated(By.id(ID)), 20000)
     .then(function (elem) {
         return elem.getText().then(function (actText) {
+            console.log(actText);
+            return expect(actText).to.include(expText);
+        })
+    })
+};
+validateInputElementTextToIncludeByID = exports.validateInputElementTextToIncludeByID = function (ID, expText) {
+    return driver.wait(until.elementLocated(By.id(ID)), 20000)
+    .then(function (elem) {
+        return elem.getAttribute('value').then(function (actText) {
             console.log(actText);
             return expect(actText).to.include(expText);
         })
