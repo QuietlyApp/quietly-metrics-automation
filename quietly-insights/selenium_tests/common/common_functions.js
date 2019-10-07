@@ -965,26 +965,30 @@ installTrackerSnippetFromSettingsPage = exports.installTrackerSnippetFromSetting
     await val.validateElementTextByID("codeInstalledMessage","Quietly Insights analytics code successfully installed");
 };
 
-//76. Change the website URL from the settings page and save the changes
+//76. Change the website URL from the property settings page and save the changes
 changeWebsiteUrl=exports.changeWebsiteUrl=async function(url){
     await goToPropertySettings();
-    await waitForElementToBeClickableById("websiteUrl");
+    await delay(2000);
+    await waitForElementToBeClickableById("websiteName");
     await waitForElementToBeClickable("//button[@class='button button-onboarding']");
-    let elem=await driver.findElement(By.id("websiteUrl"));
-    await elem.clear();
-    await elem.sendKeys(url);
-    await waitForElementToBeClickableById("settingsSaveChangesBottom");
-    await val.validateElementTextByID("websiteUrl",url);
+    await driver.findElement(By.id("websiteName")).clear()
+    await waitForElementToSendKeysById("websiteName", url);
+    await val.validateBlogsFound();
+    await delay(2000);
+        await waitForElementToBeClickableById("settingsSaveChangesBottom");
+    await delay(2000);
+    await val.validateInputElementTextByID("websiteName",url);
+    await val.validateElementTextByID("topnavUrl", url);
 };
 
 //77. Change the property name from the settings page and save the changes
 changePropertyName=exports.changePropertyName=async function(propertyName){
     await goToPropertySettings();
-    let elem= await driver.findElement(By.id("reportName"));
-    await elem.clear();
-    await elem.sendKeys(propertyName);
+    await delay(2000);
+    await driver.findElement(By.id("reportName")).clear()
+    await waitForElementToSendKeysById("reportName", propertyName);
     await waitForElementToBeClickableById("settingsSaveChangesBottom");
-    await val.validateElementTextByID("reportName",propertyName);
+    await val.validateInputElementTextByID("reportName", propertyName);
 };
 
 //78. Regenerate the report from the Admin Panel

@@ -128,8 +128,7 @@ describe('Test on-boarding in case of Free plan, Monthly pro and Annaul pro plan
         await val.validatePromoCodeSuccess();
         await common.creditCardInfo("371449635398431", "12/38", "Melinda", "392");
         await common.proPlanOnboardingWithComp();
-        await waitForElementToBeClickable("//div[@class='top-nav__arrow']");
-        await waitForElementToBeClickableById("topNavAccountSettings");
+        await common.goToAccountSettings();
         await val.validatePropertyPrice();
         await common.logout();
     });
@@ -142,8 +141,7 @@ describe('Test on-boarding in case of Free plan, Monthly pro and Annaul pro plan
         await val.validatePromoCodeFailed();
         await common.creditCardInfo("371449635398431", "12/38", "Melinda", "392");
         await common.proPlanOnboardingWithComp();
-        await waitForElementToBeClickable("//div[@class='top-nav__arrow']");
-        await waitForElementToBeClickableById("topNavAccountSettings");
+        await common.goToAccountSettings();
         await val.validatePropertyPrice("$195.00");
         await common.logout();
     });
@@ -155,8 +153,7 @@ describe('Test on-boarding in case of Free plan, Monthly pro and Annaul pro plan
         await common.addPromoCode();
         await common.creditCardInfo("371449635398431", "12/38", "Melinda", "392");
         await common.proPlanOnboardingWithComp();
-        await waitForElementToBeClickable("//div[@class='top-nav__arrow']");
-        await waitForElementToBeClickableById("topNavAccountSettings");
+        await common.goToAccountSettings();
         await val.validatePropertyPrice("$1975.00");
         await common.logout();
     });
@@ -168,8 +165,7 @@ describe('Test on-boarding in case of Free plan, Monthly pro and Annaul pro plan
         await common.addPromoCode("INSIGHTS-0");
         await common.creditCardInfo("371449635398431", "12/38", "Melinda", "392");
         await common.proPlanOnboardingWithComp();
-        await waitForElementToBeClickable("//div[@class='top-nav__arrow']");
-        await waitForElementToBeClickableById("topNavAccountSettings");
+        await common.goToAccountSettings();
         await val.validatePropertyPrice("$1975.00");
         await common.logout();
     });

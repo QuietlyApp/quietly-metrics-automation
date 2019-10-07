@@ -36,6 +36,7 @@ let configs = {
         websiteUrl: "stagingblog.quiet.ly",
         wpUrl: "https://stagingblog.quiet.ly/",
         adminUrl: "https://qa.quiet.ly/app/",
+        propertyUrl: "https://www.jalopnik.com/",
         wpUserName: "aaa",
         wpPassword: "1234",
         competitor: 'https://www.brafton.com/',
