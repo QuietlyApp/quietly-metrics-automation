@@ -9,7 +9,7 @@ const commonBeforeAfter = require('../common/commonBeforeAfter');
 describe('Upgrade Tests, #upgradetoproplan#', async function () {
     commonBeforeAfter.loadBeforeAndAfterEach();
 
-    it('C196: Log in as a new user with Free Plan and upgrade to monthly pro plan from the goals section of the dashboard', async function () {
+    it('C303: Log in as a new user with Free Plan and upgrade to monthly pro plan from the goals section of the dashboard', async function () {
         await common.goToLandingPage('Free');
         await common.signInWithGmail();
         await val.validatePlanType('Free');
@@ -24,7 +24,7 @@ describe('Upgrade Tests, #upgradetoproplan#', async function () {
         await common.logout();
     });
 
-    it('C197: Log in as a new user with Free Plan and upgrade to annual pro plan from the goals section of the dashboard', async function () {
+    it('C304 Log in as a new user with Free Plan and upgrade to annual pro plan from the goals section of the dashboard', async function () {
         await common.goToLandingPage('Free');
         await common.signInWithGmail();
         await val.validatePlanType('Free');
@@ -39,7 +39,7 @@ describe('Upgrade Tests, #upgradetoproplan#', async function () {
         await common.logout();
     });
 
-    it('C198: Upgrade Account to Monthly Pro with Valid Promocode', async function () {
+    it('C305 Upgrade Account to Monthly Pro with Valid Promocode', async function () {
         await common.goToLandingPage('Free');
         await common.signInWithGmail();
         await val.validatePlanType('Free');
@@ -57,7 +57,7 @@ describe('Upgrade Tests, #upgradetoproplan#', async function () {
         await common.logout();
     });
 
-    it('C199: Upgrade Account to Monthly Pro with Invalid Promocode', async function () {
+    it('C306 Upgrade Account to Monthly Pro with Invalid Promocode', async function () {
         await common.goToLandingPage('Free');
         await common.signInWithGmail();
         await val.validatePlanType('Free');
@@ -74,7 +74,7 @@ describe('Upgrade Tests, #upgradetoproplan#', async function () {
         await common.logout();
     });
 
-    it('C200: Upgrade Account to Yearly Pro with Promocode', async function () {
+    it('C307 Upgrade Account to Yearly Pro with Promocode', async function () {
         await common.goToLandingPage('Free');
         await common.signInWithGmail();
         await val.validatePlanType('Free');

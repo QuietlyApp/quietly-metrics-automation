@@ -9,7 +9,7 @@ const commonBeforeAfter = require('../common/commonBeforeAfter');
 describe('Test Error Messages, #test_errormessages#', function () {
     commonBeforeAfter.loadBeforeAndAfterEach();
 
-   it('C-210: Monthly Pro-Check for error message if credit card details are not provided', async function () {
+   it('C217 Monthly Pro-Check for error message if credit card details are not provided', async function () {
         await common.goToLandingPage('Monthly Pro');
         await common.signInWithGmail();
         await val.validatePlanType('Monthly Pro');
@@ -22,7 +22,7 @@ describe('Test Error Messages, #test_errormessages#', function () {
         await val.validateErrorMessage("Your card number is incomplete.");
     });
 
-    it('C-211: Monthly Pro-Check for error message if expiry date is not provided', async function () {
+    it('C218 Monthly Pro-Check for error message if expiry date is not provided', async function () {
         await common.goToLandingPage('Monthly Pro');
         await common.signInWithGmail();
         await val.validatePlanType('Monthly Pro');
@@ -35,7 +35,7 @@ describe('Test Error Messages, #test_errormessages#', function () {
         await val.validateErrorMessage("Your card's expiration date is incomplete.");
     });
 
-    it('C-212: Monthly Pro-Check for error message when the user does not provide CVC Number', async function () {
+    it('C219 Monthly Pro-Check for error message when the user does not provide CVC Number', async function () {
         await common.goToLandingPage('Monthly Pro');
         await common.signInWithGmail();
         await val.validatePlanType('Monthly Pro');
@@ -50,7 +50,7 @@ describe('Test Error Messages, #test_errormessages#', function () {
         await val.validateErrorMessage("Your card's security code is incomplete.");
     });
 
-    it('C-213: Monthly Pro-Check for error message when the user does not provide Name on Card', async function () {
+    it('C220 Monthly Pro-Check for error message when the user does not provide Name on Card', async function () {
         await common.goToLandingPage('Monthly Pro');
         await common.signInWithGmail();
         await val.validatePlanType('Monthly Pro');
@@ -67,7 +67,7 @@ describe('Test Error Messages, #test_errormessages#', function () {
         await val.validateErrorMessage("Please enter a valid cardholder name");
     });
 
-    it('C-214: Monthly Pro-Check for error message when he enters numbers or special characters in the Name on Card field', async function () {
+    it('C221 Monthly Pro-Check for error message when he enters numbers or special characters in the Name on Card field', async function () {
         await common.goToLandingPage('Monthly Pro');
         await common.signInWithGmail();
         await val.validatePlanType('Monthly Pro');
@@ -79,7 +79,7 @@ describe('Test Error Messages, #test_errormessages#', function () {
         await val.validateErrorMessage("Please enter a valid cardholder name");
     });
 
-    it('C-215: Monthly Pro-Check for error message when users enters 40 characters for naming the report', async function () {
+    it('C222 Monthly Pro-Check for error message when users enters 40 characters when naming the report', async function () {
         await common.goToLandingPage('Monthly Pro');
         await common.signInWithGmail();
         await val.validatePlanType('Monthly Pro');
@@ -89,7 +89,7 @@ describe('Test Error Messages, #test_errormessages#', function () {
         await val.validateErrorMessage("Please keep your report name to 40 characters or less");
     });
 
-    it('C-216: Monthly Pro Plan - Check for error while trying to add a new property with same domain.', async function () {
+    it('C223 Monthly Pro Plan - Check for error while trying to add a new property with same domain.', async function () {
         await common.goToLandingPage('Monthly Pro');
         await common.signInWithGmail();
         await val.validatePlanType('Monthly Pro');

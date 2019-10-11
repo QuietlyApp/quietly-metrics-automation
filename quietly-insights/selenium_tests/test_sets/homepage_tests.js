@@ -8,7 +8,7 @@ const {user: commonUserData} = require('../common/common_data');
 describe('Homepage Automated Tests, #google_analytics_tests#', function () {
     commonBeforeAfter.loadBeforeAndAfterEach();
 
-    it('C103: Free User is able to set GA Plugin from the Home Page', async function() {
+    it('C239 Free User is able to set GA Plugin from the Home Page', async function() {
         await common.goToLandingPage('Free');
         await common.signInWithGmail();
         await common.basicOnboarding("www.test.com");
@@ -17,7 +17,7 @@ describe('Homepage Automated Tests, #google_analytics_tests#', function () {
         await common.syncGoogleAnalyticsFromHome();
         await common.logout();
     });
-    it('C104: Monthly Pro User is able to set GA Plugin from the Home Page', async function() {
+    it('C240 Monthly Pro User is able to set GA Plugin from the Home Page', async function() {
         await common.goToLandingPage('Monthly Pro');
         await common.signInWithGmail();
         await common.creditCardInfo("371449635398431", "12/38", "Melinda", "392");
@@ -27,7 +27,7 @@ describe('Homepage Automated Tests, #google_analytics_tests#', function () {
         await common.syncGoogleAnalyticsFromHome();
         await common.logout();
     });
-    it('C105: Annual Pro User is able to set GA Plugin from the Home Page', async function() {
+    it('C241 Annual Pro User is able to set GA Plugin from the Home Page', async function() {
         await common.goToLandingPage('Annual Pro');
         await common.signInWithGmail();
         await common.creditCardInfo("371449635398431", "12/38", "Melinda", "392");
@@ -37,7 +37,7 @@ describe('Homepage Automated Tests, #google_analytics_tests#', function () {
         await common.syncGoogleAnalyticsFromHome();
         await common.logout();
     });
-    it('C106: Free User can add competetior from homepage if no competetior URL has been entered', async function() {
+    it('C242 Free User can add competetior from homepage if no competetior URL has been entered', async function() {
         await common.goToLandingPage('Free');
         await common.signInWithGmail();
         await common.basicOnboarding("blog.quiet.ly");
@@ -46,7 +46,7 @@ describe('Homepage Automated Tests, #google_analytics_tests#', function () {
         await val.validateHomepageForAddCompetetiors("www.jalopnik.com");
         await common.logout();
     });
-    it('C107: Monthly Pro User can add competetior from homepage if no competetior URL has been entered', async function() {
+    it('C243 Monthly Pro User can add competetior from homepage if no competetior URL has been entered', async function() {
         await common.goToLandingPage('Monthly Pro');
         await common.signInWithGmail();
         await common.creditCardInfo("371449635398431", "12/38", "Melinda", "392");
@@ -56,7 +56,7 @@ describe('Homepage Automated Tests, #google_analytics_tests#', function () {
         await val.validateHomepageForAddCompetetiors("www.jalopnik.com");
         await common.logout();
     });
-    it('AC018: Annual Pro User can add competetior from homepage if no competetior URL has been entered', async function() {
+    it('C244 Annual Pro User can add competetior from homepage if no competetior URL has been entered', async function() {
         await common.goToLandingPage('Annual Pro');
         await common.signInWithGmail();
         await common.creditCardInfo("371449635398431", "12/38", "Melinda", "392");
@@ -66,7 +66,7 @@ describe('Homepage Automated Tests, #google_analytics_tests#', function () {
         await val.validateHomepageForAddCompetetiors("www.jalopnik.com");
         await common.logout();
     });
-    it('C109: Free User - Entering Invalid URL causes the correct error message to appear', async function() {
+    it('C245: Free User - Entering Invalid URL causes the correct error message to appear', async function() {
         await common.goToLandingPage('Free');
         await common.signInWithGmail();
         await common.basicOnboarding("blog.quiet.ly");
@@ -75,7 +75,7 @@ describe('Homepage Automated Tests, #google_analytics_tests#', function () {
         await val.validateErrorMessage("Please enter a valid URL.");
         await common.logout();
     });
-    it('C110: Free User - Entering URL with no sitedata (www.test.com)', async function() {
+    it('C246 Free User - Entering URL with no sitedata (www.test.com)', async function() {
         await common.goToLandingPage('Free');
         await common.signInWithGmail();
         await common.basicOnboarding("blog.quiet.ly");
@@ -85,7 +85,7 @@ describe('Homepage Automated Tests, #google_analytics_tests#', function () {
         await val.validateNoGACompetitorForHomepage("www.test.com");
         await common.logout();
     });
-    it('C111: Monthly Pro User - Entering Invalid URL causes the correct error message to appear', async function() {
+    it('C247 Monthly Pro User - Entering Invalid URL causes the correct error message to appear', async function() {
         await common.goToLandingPage('Monthly Pro');
         await common.signInWithGmail();
         await common.creditCardInfo("371449635398431", "12/38", "Melinda", "392");
@@ -95,7 +95,7 @@ describe('Homepage Automated Tests, #google_analytics_tests#', function () {
         await val.validateErrorMessage("Please enter a valid URL.");
         await common.logout();
     });
-    it('C112: Monthly Pro User - Entering URL with no sitedata (www.test.com)', async function() {
+    it('C248 Monthly Pro User - Entering URL with no sitedata (www.test.com)', async function() {
         await common.goToLandingPage('Monthly Pro');
         await common.signInWithGmail();
         await common.creditCardInfo("371449635398431", "12/38", "Melinda", "392");
@@ -106,7 +106,7 @@ describe('Homepage Automated Tests, #google_analytics_tests#', function () {
         await val.validateNoGACompetitorForHomepage("www.test.com");
         await common.logout();
     });
-    it('C113: Annual Pro User - Entering Invalid URL causes the correct error message to appear', async function() {
+    it('C249 Annual Pro User - Entering Invalid URL causes the correct error message to appear', async function() {
         await common.goToLandingPage('Annual Pro');
         await common.signInWithGmail();
         await common.creditCardInfo("371449635398431", "12/38", "Melinda", "392");
@@ -116,7 +116,7 @@ describe('Homepage Automated Tests, #google_analytics_tests#', function () {
         await val.validateErrorMessage("Please enter a valid URL.");
         await common.logout();
     });
-    it('C114: Annual Pro User - Entering URL with no sitedata (www.test.com)', async function() {
+    it('C250 Annual Pro User - Entering URL with no sitedata (www.test.com)', async function() {
         await common.goToLandingPage('Annual Pro');
         await common.signInWithGmail();
         await common.creditCardInfo("371449635398431", "12/38", "Melinda", "392");
@@ -127,7 +127,7 @@ describe('Homepage Automated Tests, #google_analytics_tests#', function () {
         await val.validateNoGACompetitorForHomepage("www.test.com");
         await common.logout();
     });
-    it('C115: Verify homepage navigator with Free User', async function() {
+    it('C251 Verify homepage navigator with Free User', async function() {
         await common.goToLandingPage('Free');
         await common.signInWithGmail();
         await common.freePlanOnboardingWithComp();
@@ -173,7 +173,7 @@ describe('Homepage Automated Tests, #google_analytics_tests#', function () {
         }
     });
 
-    it('C166: Adding Free Account with insufficient GA information returns the proper message', async function () {
+    it('C252 Adding Free Account with insufficient GA information returns the proper message', async function () {
         await common.goToLandingPage('Free');
         await common.signInWithGmail();
         await common.basicOnboarding("www.test.com");
@@ -182,7 +182,7 @@ describe('Homepage Automated Tests, #google_analytics_tests#', function () {
         await val.validateInsufficientGAInsightsForHomepage();
         await common.logout();
     });
-    it('C167: Adding Monthly Pro Account with insufficient GA information returns the proper message', async function () {
+    it('C253 Adding Monthly Pro Account with insufficient GA information returns the proper message', async function () {
         await common.goToLandingPage('Monthly Pro');
         await common.signInWithGmail();
         await common.creditCardInfo("371449635398431", "12/38", "Melinda", "392");
@@ -192,7 +192,7 @@ describe('Homepage Automated Tests, #google_analytics_tests#', function () {
         await val.validateInsufficientGAInsightsForHomepage();
         await common.logout();
     });
-    it('C168: Adding Annual Pro Account with insufficient GA information returns the proper message', async function () {
+    it('C254 Adding Annual Pro Account with insufficient GA information returns the proper message', async function () {
         await common.goToLandingPage('Annual Pro');
         await common.signInWithGmail();
         await common.creditCardInfo("371449635398431", "12/38", "Melinda", "392");

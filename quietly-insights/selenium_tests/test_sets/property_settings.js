@@ -9,7 +9,7 @@ const commonBeforeAfter = require('../common/commonBeforeAfter');
 describe('Test the Property Settings page, #propertysettings#', function () {
     commonBeforeAfter.loadBeforeAndAfterEach();
 
-    it('C-201: Monthly Pro plan - Rename the report and save the changes', async function () {
+    it('C278: Monthly Pro plan - Rename the report and save the changes', async function () {
         await common.goToLandingPage('Monthly Pro');
         await common.signInWithGmail();
         await val.validatePlanType('Monthly Pro');
@@ -18,7 +18,7 @@ describe('Test the Property Settings page, #propertysettings#', function () {
         await common.changePropertyName("Count Chocula");
     });
 
-    it('C-202: Annual Pro plan - Rename the report and save the changes', async function () {
+    it('C279: Annual Pro plan - Rename the report and save the changes', async function () {
         await common.goToLandingPage('Annual Pro');
         await common.signInWithGmail();
         await val.validatePlanType('Annual Pro');
@@ -27,7 +27,7 @@ describe('Test the Property Settings page, #propertysettings#', function () {
         await common.changePropertyName("Count Chocula");
     });
 
-    it('C-203: Free plan - Rename the report and save the changes', async function () {
+    it('C280: Free plan - Rename the report and save the changes', async function () {
         await common.goToLandingPage('Free');
         await common.signInWithGmail();
         await val.validatePlanType('Free');
@@ -35,7 +35,7 @@ describe('Test the Property Settings page, #propertysettings#', function () {
         await common.changePropertyName("Count Chocula");
     });
 
-    it('C-204: User should be able to add Monthly Pro property', async function () {
+    it('C281: User should be able to add Monthly Pro property', async function () {
         await common.goToLandingPage('Monthly Pro');
         await common.signInWithGmail();
         await val.validatePlanType('Monthly Pro');
@@ -45,7 +45,7 @@ describe('Test the Property Settings page, #propertysettings#', function () {
         await common.proPlanOnboardingWithComp('www.jalopnik.com');
     });
 
-    it('C-205: User should be able to add Annual Pro property', async function () {
+    it('C282: User should be able to add Annual Pro property', async function () {
         await common.goToLandingPage('Monthly Pro');
         await common.signInWithGmail();
         await val.validatePlanType('Monthly Pro');
@@ -55,7 +55,7 @@ describe('Test the Property Settings page, #propertysettings#', function () {
         await common.proPlanOnboardingWithComp('www.jalopnik.com');
     });
 
-    it('C-206: User should be able to add Monthly Pro property with promo code', async function () {
+    it('C283: User should be able to add Monthly Pro property with promo code', async function () {
         await common.goToLandingPage('Monthly Pro');
         await common.signInWithGmail();
         await val.validatePlanType('Monthly Pro');
@@ -67,7 +67,7 @@ describe('Test the Property Settings page, #propertysettings#', function () {
         await val.validatePropertyPrice('$30.00');
     });
 
-    it('C-207: Adding monthly property with invalid promo code should not affect price', async function () {
+    it('C284: Adding monthly property with invalid promo code should not affect price', async function () {
         await common.goToLandingPage('Monthly Pro');
         await common.signInWithGmail();
         await val.validatePlanType('Monthly Pro');
@@ -79,7 +79,7 @@ describe('Test the Property Settings page, #propertysettings#', function () {
         await val.validatePropertyPrice('$195.00');
     });
 
-    it('C-209: User should be able to add Annual Pro property with activated promo code', async function () {
+    it('C285: User should be able to add Annual Pro property with activated promo code', async function () {
         await common.goToLandingPage('Monthly Pro');
         await common.signInWithGmail();
         await val.validatePlanType('Monthly Pro');
@@ -91,7 +91,7 @@ describe('Test the Property Settings page, #propertysettings#', function () {
         await val.validatePropertyPrice('$1975.00');
     });
 
-    it('C-208: User should be able to add Annual Pro property with invalid promo code', async function () {
+    it('C286: User should be able to add Annual Pro property with invalid promo code', async function () {
         await common.goToLandingPage('Monthly Pro');
         await common.signInWithGmail();
         await val.validatePlanType('Monthly Pro');

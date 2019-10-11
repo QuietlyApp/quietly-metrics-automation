@@ -9,7 +9,7 @@ const commonBeforeAfter = require('../common/commonBeforeAfter');
 describe('Update Credit Card Details, #updatecreditcard#', function () {
     commonBeforeAfter.loadBeforeAndAfterEach();
 
-    it('C155: Monthly Pro plan - Should display correct credit card information in the settings page and Stripe', async function () {
+    it('C293 Monthly Pro plan - Should display correct credit card information in the settings page and Stripe', async function () {
         await common.goToLandingPage('Monthly Pro');
         await common.signInWithGmail();
         await val.validatePlanType('Monthly Pro');
@@ -20,7 +20,7 @@ describe('Update Credit Card Details, #updatecreditcard#', function () {
         await common.logout();
     });
 
-    it('C156: Annual Pro plan - Should display correct credit card information in the settings page and Stripe', async function () {
+    it('C294 Annual Pro plan - Should display correct credit card information in the settings page and Stripe', async function () {
         await common.goToLandingPage('Annual Pro');
         await common.signInWithGmail();
         await val.validatePlanType('Annual Pro');
@@ -31,7 +31,7 @@ describe('Update Credit Card Details, #updatecreditcard#', function () {
         await common.logout();
     });
 
-    it('C157: Monthly Pro plan - Should update the credit card information in the settings page and stripe successfully', async function () {
+    it('C295 Monthly Pro plan - Should update the credit card information in the settings page and stripe successfully', async function () {
         await common.goToLandingPage('Monthly Pro');
         await common.signInWithGmail();
         await val.validatePlanType('Monthly Pro');
@@ -44,7 +44,7 @@ describe('Update Credit Card Details, #updatecreditcard#', function () {
         await common.logout();
     });
 
-    it('C158: Annual Pro plan - Should update the credit card information in the settings page and stripe successfully', async function () {
+    it('C296 Annual Pro plan - Should update the credit card information in the settings page and stripe successfully', async function () {
         await common.goToLandingPage('Annual Pro');
         await common.signInWithGmail();
         await val.validatePlanType('Annual Pro');
@@ -57,7 +57,7 @@ describe('Update Credit Card Details, #updatecreditcard#', function () {
         await common.logout();
     });
 
-    it('C159: Monthly Pro plan - Should not update any credit card changes if cancelled', async function () {
+    it('C297 Monthly Pro plan - Should not update any credit card changes if cancelled', async function () {
         await common.goToLandingPage('Monthly Pro');
         await common.signInWithGmail();
         await val.validatePlanType('Monthly Pro');
@@ -69,7 +69,7 @@ describe('Update Credit Card Details, #updatecreditcard#', function () {
         await common.logout();
     });
 
-    it('C160: Annual Pro plan - Should not update any credit card changes if cancelled', async function () {
+    it('C298 Annual Pro plan - Should not update any credit card changes if cancelled', async function () {
         await common.goToLandingPage('Annual Pro');
         await common.signInWithGmail();
         await val.validatePlanType('Annual Pro');
@@ -81,7 +81,7 @@ describe('Update Credit Card Details, #updatecreditcard#', function () {
         await common.logout();
     });
 
-    it('C161: Monthly Pro plan - Should throw an error if Credit Card Number is not entered', async function () {
+    it('C299 Monthly Pro plan - Should throw an error if Credit Card Number is not entered', async function () {
         await common.goToLandingPage('Monthly Pro');
         await common.signInWithGmail();
         await val.validatePlanType('Monthly Pro');
@@ -95,7 +95,7 @@ describe('Update Credit Card Details, #updatecreditcard#', function () {
         await common.logout();
     });
 
-    it('C162: Annual Pro plan - Should throw an error if Credit Card Number is not entered', async function () {
+    it('C300 Annual Pro plan - Should throw an error if Credit Card Number is not entered', async function () {
         await common.goToLandingPage('Annual Pro');
         await common.signInWithGmail();
         await val.validatePlanType('Annual Pro');
@@ -109,7 +109,7 @@ describe('Update Credit Card Details, #updatecreditcard#', function () {
         await common.logout();
     });
 
-    it('C163: Monthly Pro plan - Should throw errors when specific details are not provided', async function () {
+    it('C301 Monthly Pro plan - Should throw errors when specific details are not provided', async function () {
         await common.goToLandingPage('Monthly Pro');
         await common.signInWithGmail();
         await val.validatePlanType('Monthly Pro');
@@ -139,7 +139,7 @@ describe('Update Credit Card Details, #updatecreditcard#', function () {
         await common.logout();
     });
 
-    it('C164: Annual Pro plan - Should throw errors when specific details are not provided', async function () {
+    it('C302 Annual Pro plan - Should throw errors when specific details are not provided', async function () {
         await common.goToLandingPage('Annual Pro');
         await common.signInWithGmail();
         await val.validatePlanType('Annual Pro');

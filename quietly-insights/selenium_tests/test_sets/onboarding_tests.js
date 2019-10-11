@@ -10,7 +10,7 @@ const commonBeforeAfter = require('../common/commonBeforeAfter');
 describe('Test on-boarding in case of Free plan, Monthly pro and Annaul pro plan types, #onboarding_tests#', async function () {
     commonBeforeAfter.loadBeforeAndAfterEach();
 
-    it('C137: Log in with GA account using Free Plan and complete basic on-boarding', async function () {
+    it('C262 Log in with GA account using Free Plan and complete basic on-boarding', async function () {
         await common.goToLandingPage('Free');
         await common.signInWithGmail();
         await val.validatePlanType('Free');
@@ -18,7 +18,7 @@ describe('Test on-boarding in case of Free plan, Monthly pro and Annaul pro plan
         await common.logout();
     });
 
-    it('C138: Log in with non GA account using Free Plan and complete basic on-boarding', async function () {
+    it('C263 Log in with non GA account using Free Plan and complete basic on-boarding', async function () {
         commonUserData.userName='quietlymedia@gmail.com';
         await common.goToLandingPage('Free');
         await common.signInWithGmail("quietlymedia@gmail.com", "N0morewaffles");
@@ -27,7 +27,7 @@ describe('Test on-boarding in case of Free plan, Monthly pro and Annaul pro plan
         await common.logout('quietlymedia@gmail.com');
     });
 
-    it('C139: Log in with GA account using Free Plan and complete on-boarding specifying competitor', async function () {
+    it('C264 Log in with GA account using Free Plan and complete on-boarding specifying competitor', async function () {
         await common.goToLandingPage('Free');
         await common.signInWithGmail();
         await val.validatePlanType('Free');
@@ -35,7 +35,7 @@ describe('Test on-boarding in case of Free plan, Monthly pro and Annaul pro plan
         await common.logout();
     });
 
-    it('C140: Log in with non GA account using Free Plan and complete on-boarding specifying competitor', async function () {
+    it('C265 Log in with non GA account using Free Plan and complete on-boarding specifying competitor', async function () {
         commonUserData.userName='quietlymedia@gmail.com';
         await common.goToLandingPage('Free');
         await common.signInWithGmail("quietlymedia@gmail.com", "N0morewaffles");
@@ -44,7 +44,7 @@ describe('Test on-boarding in case of Free plan, Monthly pro and Annaul pro plan
         await common.logout("quietlymedia@gmail.com");
     });
 
-    it('C141: Log in with GA account using Monthly Pro Plan and complete basic on-boarding', async function () {
+    it('C266 Log in with GA account using Monthly Pro Plan and complete basic on-boarding', async function () {
         await common.goToLandingPage('Monthly Pro');
         await common.signInWithGmail();
         await val.validatePlanType('Monthly Pro');
@@ -53,7 +53,7 @@ describe('Test on-boarding in case of Free plan, Monthly pro and Annaul pro plan
         await common.logout();
     });
 
-    it('C142: Log in with non GA account using Monthly Pro Plan and complete basic on-boarding', async function () {
+    it('C267 Log in with non GA account using Monthly Pro Plan and complete basic on-boarding', async function () {
         commonUserData.userName='quietlymedia@gmail.com';
         await common.goToLandingPage('Monthly Pro');
         await common.signInWithGmail("quietlymedia@gmail.com", "N0morewaffles");
@@ -63,7 +63,7 @@ describe('Test on-boarding in case of Free plan, Monthly pro and Annaul pro plan
         await common.logout("quietlymedia@gmail.com");
     });
 
-    it('C143: Log in with GA account using Monthly Pro Plan and complete on-boarding specifying 5 competitors', async function () {
+    it('C268 Log in with GA account using Monthly Pro Plan and complete on-boarding specifying 5 competitors', async function () {
         await common.goToLandingPage('Monthly Pro');
         await common.signInWithGmail();
         await val.validatePlanType('Monthly Pro');
@@ -72,7 +72,7 @@ describe('Test on-boarding in case of Free plan, Monthly pro and Annaul pro plan
         await common.logout();
     });
 
-    it('C144: Log in with non GA account using Monthly Pro Plan and complete on-boarding specifying 5 competitors', async function () {
+    it('C269 Log in with non GA account using Monthly Pro Plan and complete on-boarding specifying 5 competitors', async function () {
         commonUserData.userName='quietlymedia@gmail.com';
         await common.goToLandingPage('Monthly Pro');
         await common.signInWithGmail("quietlymedia@gmail.com", "N0morewaffles");
@@ -82,7 +82,7 @@ describe('Test on-boarding in case of Free plan, Monthly pro and Annaul pro plan
         await common.logout("quietlymedia@gmail.com");
     });
 
-    it('C145: Log in with GA account using Annual Pro Plan and complete basic on-boarding', async function () {
+    it('C270 Log in with GA account using Annual Pro Plan and complete basic on-boarding', async function () {
         await common.goToLandingPage('Annual Pro');
         await common.signInWithGmail();
         await val.validatePlanType('Annual Pro');
@@ -91,7 +91,7 @@ describe('Test on-boarding in case of Free plan, Monthly pro and Annaul pro plan
         await common.logout();
     });
 
-    it('C146: Log in with non GA account using Annual Pro Plan and complete basic on-boarding', async function () {
+    it('C271 Log in with non GA account using Annual Pro Plan and complete basic on-boarding', async function () {
         commonUserData.userName='quietlymedia@gmail.com';
         await common.goToLandingPage('Annual Pro');
         await common.signInWithGmail("quietlymedia@gmail.com", "N0morewaffles");
@@ -101,7 +101,7 @@ describe('Test on-boarding in case of Free plan, Monthly pro and Annaul pro plan
         await common.logout("quietlymedia@gmail.com");
     });
 
-    it('C147: Log in with GA account using Annual Pro Plan and complete on-boarding specifying 5 competitors', async function () {
+    it('C272 Log in with GA account using Annual Pro Plan and complete on-boarding specifying 5 competitors', async function () {
         await common.goToLandingPage('Annual Pro');
         await common.signInWithGmail();
         await val.validatePlanType('Annual Pro');
@@ -110,7 +110,7 @@ describe('Test on-boarding in case of Free plan, Monthly pro and Annaul pro plan
         await common.logout();
     });
 
-    it('C148: Log in with non GA account using Annual Pro Plan and complete on-boarding specifying 5 competitors', async function () {
+    it('C273 Log in with non GA account using Annual Pro Plan and complete on-boarding specifying 5 competitors', async function () {
         commonUserData.userName='quietlymedia@gmail.com';
         await common.goToLandingPage('Annual Pro');
         await common.signInWithGmail("quietlymedia@gmail.com", "N0morewaffles");
@@ -120,7 +120,7 @@ describe('Test on-boarding in case of Free plan, Monthly pro and Annaul pro plan
         await common.logout("quietlymedia@gmail.com");
     });
 
-    it('C182: Onboard Monthly Pro Account with Promo Code', async function () {
+    it('C274 Onboard Monthly Pro Account with Promo Code', async function () {
         commonUserData.userName='quietlymedia@gmail.com';
         await common.goToLandingPage('Monthly Pro');
         await common.signInWithGmail("quietlymedia@gmail.com", "N0morewaffles");
@@ -133,7 +133,7 @@ describe('Test on-boarding in case of Free plan, Monthly pro and Annaul pro plan
         await common.logout();
     });
 
-    it('C183: Onboard Monthly Pro Account with invalid Promo Code', async function () {
+    it('C275 Onboard Monthly Pro Account with invalid Promo Code', async function () {
         commonUserData.userName='quietlymedia@gmail.com';
         await common.goToLandingPage('Monthly Pro');
         await common.signInWithGmail("quietlymedia@gmail.com", "N0morewaffles");
@@ -146,7 +146,7 @@ describe('Test on-boarding in case of Free plan, Monthly pro and Annaul pro plan
         await common.logout();
     });
 
-    it('C184: Onboard Annual Pro Account with valid Promo Code', async function () {
+    it('C276 Onboard Annual Pro Account with valid Promo Code', async function () {
         commonUserData.userName='quietlymedia@gmail.com';
         await common.goToLandingPage('Annual Pro');
         await common.signInWithGmail("quietlymedia@gmail.com", "N0morewaffles");
@@ -158,7 +158,7 @@ describe('Test on-boarding in case of Free plan, Monthly pro and Annaul pro plan
         await common.logout();
     });
 
-    it('C185: Onboard Annual Pro Account with invalid Promo Code', async function () {
+    it('C277 Onboard Annual Pro Account with invalid Promo Code', async function () {
         commonUserData.userName='quietlymedia@gmail.com';
         await common.goToLandingPage('Annual Pro');
         await common.signInWithGmail("quietlymedia@gmail.com", "N0morewaffles");

@@ -15,7 +15,7 @@
         "items-promise": "^1.0.0",
         "knex": "^0.14.2",
         "lodash": "^4.17.11",
-        "mocha": "^4.0.1",
+        "mocha": "^3.5.3",
         "mochawesome": "^3.0.0",
         "mysql": "^2.17.1",
         "promise": "^8.0.2",
@@ -30,5 +30,10 @@
         "sqlstring": "^2.3.0",
         "stripe": "^5.4.0",
         "webdriverjs-retry": "^0.2.0"
+    },
+    "devDependencies": {
+        "install-peers": "^1.0.3",
+        "mocha-testrail-advanced-reporter": "^1.0.1",
+        "mocha-testrail-reporter": "^1.0.12"
     }
 }
