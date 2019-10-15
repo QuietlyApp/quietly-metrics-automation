@@ -634,8 +634,11 @@ validateComppageForAddCompetetiors=exports.validateComppageForAddCompetetiors = 
 };
 
 //47. Validate toast alert for promocode
-validatePromoCodeSuccess=exports.validatePromoCodeSuccess = async function(newPrice) {
-    newPrice=newPrice|| commonUserData.promoCodePrice;
+validatePromoCodeSuccess=exports.validatePromoCodeSuccess = async function(newPrice, promoDuration) {
+    newPrice=newPrice || commonUserData.promoCodePrice;
+    promoDuration=promoDuration || commonUserData.promoDuration;
+    await validateElementTextToIncludeByID("monthly", newPrice);
+    await validateElementTextToIncludeByID("monthly", promoDuration);
     await validateElementTextByID("toast-alert", "Success! Your discount has been applied.");
 }
 
