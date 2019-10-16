@@ -637,13 +637,14 @@ validateComppageForAddCompetetiors=exports.validateComppageForAddCompetetiors = 
 validatePromoCodeSuccess=exports.validatePromoCodeSuccess = async function(newPrice, promoDuration) {
     newPrice=newPrice || commonUserData.promoCodePrice;
     promoDuration=promoDuration || commonUserData.promoDuration;
-    await validateElementTextToIncludeByID("monthly", newPrice);
-    await validateElementTextToIncludeByID("monthly", promoDuration);
+    await validateElementTextToIncludeByID("totalMonthlyCharge", newPrice);
+    await validateElementTextToIncludeByID("totalMonthlyCharge", promoDuration);
     await validateElementTextByID("toast-alert", "Success! Your discount has been applied.");
 }
 
 validatePromoCodeFailed=exports.validatePromoCodeFailed = async function() {
     await validateErrorMessage("Hmm, we couldn’t find a promotion for this code. Check for typos and try again.");
+    await validateElementTextToIncludeByID("totalMonthlyCharge", "$195");
 }
 
 validatePropertyPrice=exports.validatePropertyPrice = async function(price, index) {

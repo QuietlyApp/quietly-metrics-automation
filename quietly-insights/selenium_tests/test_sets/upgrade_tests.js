@@ -52,7 +52,6 @@ describe('Upgrade Tests, #upgradetoproplan#', async function () {
         await val.validatePromoCodeSuccess();
         await common.selectBillingOption("Monthly");
         await common.upgradeToProPlan();
-        await val.validatePropertyPrice();
         await val.validateMonthlyProPlanFromSettings();
         await common.logout();
     });
@@ -87,11 +86,26 @@ describe('Upgrade Tests, #upgradetoproplan#', async function () {
         await val.validatePromoCodeSuccess();
         await common.selectBillingOption("Annual");
         await common.upgradeToProPlan();
-        await val.validatePropertyPrice("$1975.00");
         await val.validateAnnualProPlanFromSettings();
         await common.logout();
     });
 
+    it('C310 Upgrade Account to Monthly Pro with Indefinite Promocode', async function () {
+        await common.goToLandingPage('Free');
+        await common.signInWithGmail();
+        await val.validatePlanType('Free');
+        await common.basicOnboarding();
+        await waitForElementToBeClickable("//div[@class='top-nav__arrow']");
+        await waitForElementToBeClickableById("topNavAccountSettings");
+        await waitForElementToBeClickableById("editButtonForProperty0");
+        await waitForElementToBeClickableById("upgradeToProForProperty0");
+        await common.addPromoCode("V9BK1iKK");
+        await val.validatePromoCodeSuccess("$30", "forever");
+        await common.selectBillingOption("Monthly");
+        await common.upgradeToProPlan();
+        await val.validateMonthlyProPlanFromSettings();
+        await common.logout();
+    });
     // it('Test Case 3: Log in as a new user with Free Plan and upgrade to monthly pro plan from the middle-of-funnel content ideas page', async function () {
     //     await common.goToLandingPage('Free');
     //     await common.signInWithGmail();
