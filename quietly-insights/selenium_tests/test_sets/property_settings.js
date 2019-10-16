@@ -103,6 +103,18 @@ describe('Test the Property Settings page, #propertysettings#', function () {
         await val.validatePropertyPrice('$1975.00');
     });
 
+    it('C309: Add Monthly Pro property with $30 infinite promo code', async function () {
+        await common.goToLandingPage('Monthly Pro');
+        await common.signInWithGmail();
+        await val.validatePlanType('Monthly Pro');
+        await common.creditCardInfo("371449635398431", "12/38", "Melinda", "392");
+        await common.proPlanOnboardingWithComp();
+        await common.addNewProperty('Monthly', 'V9BK1iKK');
+        await common.proPlanOnboardingWithComp('www.jalopnik.com');
+        await common.goToAccountSettings();
+        await val.validatePropertyPrice('$30.00');
+    });
+
     // it('Test Case 4: Monthly Pro plan - Change the website and save the changes', async function () {
     //     await common.goToLandingPage('Monthly Pro');
     //     await common.signInWithGmail();

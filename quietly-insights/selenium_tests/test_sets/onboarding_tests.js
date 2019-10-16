@@ -169,4 +169,17 @@ describe('Test on-boarding in case of Free plan, Monthly pro and Annaul pro plan
         await val.validatePropertyPrice("$1975.00");
         await common.logout();
     });
+
+    it('C308 Onboard Monthly Pro Account with indefinite promo code', async function () {
+        commonUserData.userName='quietlymedia@gmail.com';
+        await common.goToLandingPage('Monthly Pro');
+        await common.signInWithGmail("quietlymedia@gmail.com", "N0morewaffles");
+        await common.addPromoCode("V9BK1iKK");
+        await val.validatePromoCodeSuccess("$30", "forever");
+        await common.creditCardInfo("371449635398431", "12/38", "Melinda", "392");
+        await common.proPlanOnboardingWithComp();
+        await common.goToAccountSettings();
+        await val.validatePropertyPrice();
+        await common.logout();
+    });
 });
