@@ -639,7 +639,6 @@ validatePromoCodeSuccess=exports.validatePromoCodeSuccess = async function(newPr
     promoDuration=promoDuration || commonUserData.promoDuration;
     await validateElementTextToIncludeByID("totalMonthlyCharge", newPrice);
     await validateElementTextToIncludeByID("totalMonthlyCharge", promoDuration);
-    await validateElementTextByID("toast-alert", "Success! Your discount has been applied.");
 }
 
 validatePromoCodeFailed=exports.validatePromoCodeFailed = async function() {
