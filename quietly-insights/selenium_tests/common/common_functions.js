@@ -50,6 +50,7 @@ exports.openBrowser = (browser, server) => {
     }
 
     driver = new webDriver.Builder().usingServer(server).withCapabilities(capabilities).build();
+    driver.manage().window().setSize(1920, 1080);
 };
 
 //2. Go to the Login page of Quietly Insights
