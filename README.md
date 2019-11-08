@@ -16,3 +16,4 @@ If you want the tests to run on another server, you can change the configurate i
 `uietly-insights/selenium_tests/common/common_data.js`
 
 
+# quietly-metrics-automation
