@@ -28,7 +28,8 @@ describe('Multiple Browser Session Tests', function () {
             console.log("Paragraph Read Test - Iteration " + i);
             await common.paragraphReadTest();
         }
-    });x
+    });
+    it('Paragraph Up and Down Read Test', async function() {
         //control variables for iterations
         for(let i = 0; i < commonUserData.readTestIterations; i++)
         {
