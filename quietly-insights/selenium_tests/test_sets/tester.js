@@ -37,44 +37,44 @@ describe('Multiple Browser Session Tests', function () {
             await common.paragraphReadTest(commonUserData.readUpDownSequence);
         }
     });
-    // it('Conversion Test', async function() {
-    //     for(let i = 0; i < commonUserData.convertLinkIterations; i++)
-    //     {
-    //         console.log("Convert Link Test - Iteration " + i);
-    //         await common.convertForm();
-    //     }
-    //     for(let i = 0; i < commonUserData.convertFormIterations; i++)
-    //     {
-    //         console.log("Convert Form Test - Iteration " + i);
-    //         await common.convertLink();
-    //     }
-    //     for(let i = 0; i < commonUserData.noConvertIterations; i++)
-    //     {
-    //         console.log("No Convert Test - Iteration " + i);
-    //         await common.dontConvert();
-    //     }        
-    // });
-    // it('Single Depth Conversion Test', async function() {
-    //     for(let i = 0; i < commonUserData.SDConvertLinkIterations; i++)
-    //     {
-    //         console.log("Single Depth Convert Link Test - Iteration " + i);
-    //         await common.convertForm(
-    //             ["https://stagingblog.quiet.ly/blog/uncategorized/links-and-goals/"]
-    //         );
-    //     }
-    //     for(let i = 0; i < commonUserData.SDConvertFormIterations; i++)
-    //     {
-    //         console.log("Single Depth Convert Form Test - Iteration " + i);
-    //         await common.convertLink(
-    //             ["https://stagingblog.quiet.ly/blog/uncategorized/links-and-goals/"]
-    //         );
-    //     }
-    //     for(let i = 0; i < commonUserData.SDNoConvertIterations; i++)
-    //     {
-    //         console.log("Single Depth No Convert Test - Iteration " + i);
-    //         await common.dontConvert(
-    //             ["https://stagingblog.quiet.ly/blog/uncategorized/links-and-goals/"]
-    //         );
-    //     }        
-    // });
+    it('Conversion Test', async function() {
+        for(let i = 0; i < commonUserData.convertLinkIterations; i++)
+        {
+            console.log("Convert Link Test - Iteration " + i);
+            await common.convertForm();
+        }
+        for(let i = 0; i < commonUserData.convertFormIterations; i++)
+        {
+            console.log("Convert Form Test - Iteration " + i);
+            await common.convertLink();
+        }
+        for(let i = 0; i < commonUserData.noConvertIterations; i++)
+        {
+            console.log("No Convert Test - Iteration " + i);
+            await common.dontConvert();
+        }        
+    });
+    it('Single Depth Conversion Test', async function() {
+        for(let i = 0; i < commonUserData.SDConvertLinkIterations; i++)
+        {
+            console.log("Single Depth Convert Link Test - Iteration " + i);
+            await common.convertForm(
+                ["https://stagingblog.quiet.ly/blog/uncategorized/links-and-goals/"]
+            );
+        }
+        for(let i = 0; i < commonUserData.SDConvertFormIterations; i++)
+        {
+            console.log("Single Depth Convert Form Test - Iteration " + i);
+            await common.convertLink(
+                ["https://stagingblog.quiet.ly/blog/uncategorized/links-and-goals/"]
+            );
+        }
+        for(let i = 0; i < commonUserData.SDNoConvertIterations; i++)
+        {
+            console.log("Single Depth No Convert Test - Iteration " + i);
+            await common.dontConvert(
+                ["https://stagingblog.quiet.ly/blog/uncategorized/links-and-goals/"]
+            );
+        }        
+    });
 });

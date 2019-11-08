@@ -17,15 +17,15 @@ let configs = {
 
 
         //Iterations to run tests:
-        readTestIterations: 1,
+        readTestIterations: 20,
         //full depth conversions
-        convertLinkIterations: 1,
-        convertFormIterations: 1,
-        noConvertIterations: 1,
+        convertLinkIterations: 10,
+        convertFormIterations: 10,
+        noConvertIterations: 10,
         //single depth conversions
-        SDConvertLinkIterations: 1,
-        SDConvertFormIterations: 1,
-        SDNoConvertIterations: 1,
+        SDConvertLinkIterations: 0,
+        SDConvertFormIterations: 0,
+        SDNoConvertIterations: 0,
         //=====================================================================
 
         //Site Data Control:
