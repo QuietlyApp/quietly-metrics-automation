@@ -4,7 +4,7 @@ const path = require('path');
 const basename = path.basename(module.filename);
 
 describe('Quietly Insights', function () {
-    this.timeout(600000);
+    this.timeout(43200000);
     before(function () {
         return db.connectToDatabase();
     });

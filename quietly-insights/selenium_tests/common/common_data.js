@@ -8,59 +8,64 @@ const {config: loadEnv} = require('dotenv');
 
 let configs = {
     app: {
-        browser: "Chrome",
+        browser: "Firefox",
         stripeKey: "sk_test_CLAbYrrDZDIuzDcXdrOqAkyi",
         seleniumGridIp: "127.0.0.1",
         server:"http://127.0.0.1:4444/wd/hub"
     },
     user: {
-        platform:"MAC", //To install tracker, the steps are different on windows and MAC, hence added this variable.
-        cardNumber:"4242424242424242",
-        expiryDate:"0123",
-        nameOnCard:"Ellen",
-        cvcNumber:"123",
-        promoCode:"INSIGHTS-30",
-        promoCodePrice:"$30",
-        promoDuration:"6 months",
-        userName: "quietlyqa21257@gmail.com",
-        password: "N0morewaffles",
-        adminAccount: "quietlyautomation@gmail.com (stagingblog.quiet.ly)",
-        reportOption: "monthly",
-        userNameNoGa: "pprathibhacse2k6@gmail.com",
-        passwordNoGa: "HelloHWU@09",
-        planType: "Pro",
-        industry: "Plastics",
-        account: "Quietly",
-        property: "CURRENT: Quietly Agency Marketing",
-        view: "Agency Master View",
-        propertyName: "Quietly Insights Automation",
-        websiteUrl: "stagingblog.quiet.ly",
-        wpUrl: "https://stagingblog.quiet.ly/",
-        adminUrl: "https://qa.quiet.ly/app/",
-        propertyUrl: "https://www.jalopnik.com/",
-        wpUserName: "aaa",
-        wpPassword: "1234",
-        competitor: 'https://www.brafton.com/',
-        competitors:[
-            'https://contently.com/strategist/2018/06/05/modern-cmo-infographic/',
-            'https://contentmarketinginstitute.com/',
-            'https://www.rei.com/blog/'
+
+
+        //Iterations to run tests:
+        readTestIterations: 1,
+        //full depth conversions
+        convertLinkIterations: 1,
+        convertFormIterations: 1,
+        noConvertIterations: 1,
+        //single depth conversions
+        SDConvertLinkIterations: 1,
+        SDConvertFormIterations: 1,
+        SDNoConvertIterations: 1,
+        //=====================================================================
+
+        //Site Data Control:
+        blogUrl: "https://stagingblog.quiet.ly/blog/uncategorized/testing/",
+        //List of URLs to use for assist testing
+        assistUrls:[
+            "https://stagingblog.quiet.ly/blog/uncategorized/testing-3/",
+            "https://stagingblog.quiet.ly/blog/uncategorized/testing-2/",
+            "https://stagingblog.quiet.ly/blog/uncategorized/links-and-goals/",
         ],
-        allCompetitors:[
-            'https://contently.com/',
-            'https://contentmarketinginstitute.com/2018/07/purpose-marketing-brands/',
-            'https://www.rei.com/blog/cycle/putting-the-colorado-trail-on-the-map',
-            'https://blog.percolate.com/',
-            'https://www.brafton.com/blog/'
+        formXpath: "//button[@class='button button-submit']",
+        linkXpath: "//a[@href='https://www.quiet.ly']",
+        //url for blog read tests
+        partialReadBlogUrl:"https://stagingblog.quiet.ly/blog/uncategorized/partial-read-test/",
+        fullReadBlogUrl:"https://stagingblog.quiet.ly/blog/uncategorized/full-read-test/",
+        skimReadBlogUrl:"https://stagingblog.quiet.ly/blog/uncategorized/page-skim-test/",
+        //for paragraph reading tests
+        paragraphReadBlogUrl:"https://stagingblog.quiet.ly/blog/uncategorized/lipsum-4paragraphs/",
+        paragraphHeadings:[
+            "P1",
+            "P2",
+            "P3",
+            "P4",
         ],
-        emails:['pprathibhacse2k6@gmail.com', 'prathibhanalla007@gmail.com', 'vamshreddy@gmail.com', 'nallavamsidharreddy@gmail.com'],
-        primaryGoal: ['Agency CTA Clicks'],
-        additionalGoals:['Insights CTA Clicks','Total Blog CTA Clicks','Lead Form Submission'],
-        wpAdminName:"Prathibha",
-        wpAdminPassword:"jHfF$o9pnzL8Uqzeo)twiieO",
-        formGoalName:"Newsletter",
-        formGoalXpath:"//form[@id='newsletterSignupForm']",
-        installPageHref:"/#/0/install"
+        //for paragraph up and down reading tests
+        readUpDownSequence:[
+            "P1",
+            "P2",
+            "P3",
+            "P1",
+        ],
+
+
+        //=======================================================================
+        //READER PARAMETERS
+        paragraphWordCount: 40,
+        wpm: 240,
+        //global config
+        defaultScreenWidth: 1024,
+        defaultScreenHeight: 500,
     },
     db: { }
 };
