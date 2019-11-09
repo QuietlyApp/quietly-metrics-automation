@@ -41,12 +41,12 @@ describe('Multiple Browser Session Tests', function () {
         for(let i = 0; i < commonUserData.convertLinkIterations; i++)
         {
             console.log("Convert Link Test - Iteration " + i);
-            await common.convertForm();
+            await common.convertLink();
         }
         for(let i = 0; i < commonUserData.convertFormIterations; i++)
         {
             console.log("Convert Form Test - Iteration " + i);
-            await common.convertLink();
+            await common.convertForm();
         }
         for(let i = 0; i < commonUserData.noConvertIterations; i++)
         {
@@ -58,14 +58,14 @@ describe('Multiple Browser Session Tests', function () {
         for(let i = 0; i < commonUserData.SDConvertLinkIterations; i++)
         {
             console.log("Single Depth Convert Link Test - Iteration " + i);
-            await common.convertForm(
+            await common.convertLink(
                 ["https://stagingblog.quiet.ly/blog/uncategorized/links-and-goals/"]
             );
         }
         for(let i = 0; i < commonUserData.SDConvertFormIterations; i++)
         {
             console.log("Single Depth Convert Form Test - Iteration " + i);
-            await common.convertLink(
+            await common.convertForm(
                 ["https://stagingblog.quiet.ly/blog/uncategorized/links-and-goals/"]
             );
         }

@@ -17,11 +17,11 @@ let configs = {
 
 
         //Iterations to run tests:
-        readTestIterations: 20,
+        readTestIterations: 0,
         //full depth conversions
         convertLinkIterations: 10,
-        convertFormIterations: 10,
-        noConvertIterations: 10,
+        convertFormIterations: 15,
+        noConvertIterations: 0,
         //single depth conversions
         SDConvertLinkIterations: 0,
         SDConvertFormIterations: 0,
@@ -37,7 +37,7 @@ let configs = {
             "https://stagingblog.quiet.ly/blog/uncategorized/links-and-goals/",
         ],
         formXpath: "//button[@class='button button-submit']",
-        linkXpath: "//a[@href='https://www.quiet.ly']",
+        linkXpath: "//a[@href='https://www.google.ca']",
         //url for blog read tests
         partialReadBlogUrl:"https://stagingblog.quiet.ly/blog/uncategorized/partial-read-test/",
         fullReadBlogUrl:"https://stagingblog.quiet.ly/blog/uncategorized/full-read-test/",
